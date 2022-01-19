@@ -1,8 +1,8 @@
 ﻿using System;
-using _Root.Scripts.Controllers.Interfaces;
 using _Root.Scripts.Models;
 using _Root.Scripts.Views;
 using UnityEngine;
+
 
 namespace _Root.Scripts.Controllers
 {
@@ -140,6 +140,7 @@ namespace _Root.Scripts.Controllers
                 if (Input.GetButtonDown("Jump"))
                 {
                     _rigidbody.AddForce(Vector2.up * _playerModel.JumpSpeed * JUMP_WALL_COEF);
+                    _rigidbody.AddForce(Vector2.left * _playerModel.JumpSpeed * JUMP_WALL_COEF*2);
                 }
             }
             else

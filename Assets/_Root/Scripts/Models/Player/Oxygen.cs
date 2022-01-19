@@ -1,21 +1,19 @@
-﻿using UnityEngine;
-
-namespace _Root.Scripts.Controllers
+﻿namespace _Root.Scripts.Controllers
 {
     public class Oxygen
     {
         #region Fields
 
-        private float _timeToRun;
+        private readonly float _timeToRun;
         private float _timeLeft;
 
         #endregion
         
         #region Properties
 
-        public float MaxOxygen { get; private set; }
-        public float CurrentOxygen { get; set; }
-        public bool HasOxygen { get; private set; } = true;
+        private float MaxOxygen { get; set; }
+        private float CurrentOxygen { get; set; }
+        private bool HasOxygen { get; set; } = true;
 
         #endregion
 

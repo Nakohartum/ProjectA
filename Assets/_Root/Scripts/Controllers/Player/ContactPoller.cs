@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 
+
 namespace _Root.Scripts.Controllers
 {
     public class ContactPoller
     {
         #region Fields
 
-        private ContactPoint2D[] _contactPoints = new ContactPoint2D[10];
+        private readonly ContactPoint2D[] _contactPoints = new ContactPoint2D[10];
         private readonly Collider2D _collider;
         private const float _collisionTresh = 0.5f;
         private int _contactsCount;

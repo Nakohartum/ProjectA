@@ -1,19 +1,25 @@
 ﻿using System;
-using _Root.Scripts.Models;
 using _Root.Scripts.Models.Obstacles;
 using _Root.Scripts.Utilities;
 using UnityEngine;
-using UnityEngine.Events;
+
 
 namespace _Root.Scripts.Views
 {
     public class ObstacleView : MonoBehaviour
     {
+        #region Properties
+
         public ObstacleConfig ObstacleConfig;
         public event Action OnPlayerCollide = () => { };
         public event Action OnStart = () => { };
         public ConnectedCollider ConnectedCollider;
         public ParticleSystem Particles;
+
+        #endregion
+
+
+        #region Unity Methods
 
         private void Start()
         {
@@ -25,5 +31,7 @@ namespace _Root.Scripts.Views
             OnPlayerCollide.Invoke();
             Debug.Log("Done");
         }
+
+        #endregion
     }
 }

@@ -3,20 +3,20 @@ using _Root.Scripts.Controllers.Interfaces;
 using _Root.Scripts.Views;
 using UnityEngine;
 
+
 namespace _Root.Scripts.Controllers.Camera
 {
     public class CameraController : IExecutable, IDisposable
     {
         #region Fields
 
-        private CameraView _cameraView;
-        private Transform _targetTransform;
-        private ExecutableObjects _executableObjects;
-        private const int _cameraOffset = -10;
-        private float _minXPosition;
-        private float _maxXPosition;
-        private float _minYPosition;
-        private float _maxYPosition;
+        private readonly CameraView _cameraView;
+        private readonly Transform _targetTransform;
+        private readonly ExecutableObjects _executableObjects;
+        private readonly float _minXPosition;
+        private readonly float _maxXPosition;
+        private readonly float _minYPosition;
+        private readonly float _maxYPosition;
 
         #endregion
 
@@ -47,8 +47,9 @@ namespace _Root.Scripts.Controllers.Camera
                 return;
             }
             var pos = _cameraView.transform.position;
-            pos.x = Mathf.Clamp(_targetTransform.position.x, _minXPosition, _maxXPosition);
-            pos.y = Mathf.Clamp(_targetTransform.position.y, _minYPosition, _maxYPosition);
+            var position = _targetTransform.position;
+            pos.x = Mathf.Clamp(position.x, _minXPosition, _maxXPosition);
+            pos.y = Mathf.Clamp(position.y, _minYPosition, _maxYPosition);
             _cameraView.transform.position = pos;
         }
 

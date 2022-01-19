@@ -1,7 +1,7 @@
 ﻿using System;
 using _Root.Scripts.Controllers.Interfaces;
-using _Root.Scripts.Models;
 using UnityEngine;
+
 
 namespace _Root.Scripts.Controllers
 {

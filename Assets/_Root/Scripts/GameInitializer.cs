@@ -3,17 +3,18 @@ using _Root.Configs;
 using _Root.Scripts.Controllers;
 using _Root.Scripts.Controllers.Camera;
 using _Root.Scripts.Controllers.Obstacles;
-using _Root.Scripts.Models;
-using _Root.Scripts.Models.Obstacles;
 using _Root.Scripts.Views;
+
 
 namespace _Root.Scripts
 {
     public class GameInitializer
     {
+        #region Constructor
+
         public GameInitializer(ExecutableObjects executableObjects, LevelObjects levelObjects, List<ObstacleView> obstacleViews)
         {
-            var obstacleFactory = new ObstacleFactory(obstacleViews);
+            var obstacleFactory = new ObstacleFactory(obstacleViews, executableObjects);
             var playerFactory = new PlayerFactory(levelObjects, executableObjects);
             var playerController = playerFactory.CreatePlayer();
             var obstacleControllers = obstacleFactory.CreateObstacles();
@@ -25,5 +26,8 @@ namespace _Root.Scripts
                 obstacleControllers[i].OnPlayerCollide.AddListener(playerFactory.GetPlayerModel().Health.RemoveHealthPoints);
             }
         }
+
+        #endregion
+        
     }
 }

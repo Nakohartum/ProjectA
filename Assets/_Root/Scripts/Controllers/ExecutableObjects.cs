@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using _Root.Scripts.Controllers.Interfaces;
+
 
 namespace _Root.Scripts.Controllers
 {
@@ -8,7 +8,7 @@ namespace _Root.Scripts.Controllers
     {
         #region Fields
 
-        private List<IExecutable> _executables = new List<IExecutable>();
+        private readonly List<IExecutable> _executables = new List<IExecutable>();
 
         #endregion
 

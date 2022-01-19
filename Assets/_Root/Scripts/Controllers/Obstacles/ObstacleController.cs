@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections;
-using _Root.Scripts.Models;
+﻿using _Root.Scripts.Controllers.Interfaces;
 using _Root.Scripts.Models.Obstacles;
 using _Root.Scripts.Views;
-using DG.Tweening;
-using UnityEngine;
 using UnityEngine.Events;
+
 
 namespace _Root.Scripts.Controllers.Obstacles
 {
-    public abstract class ObstacleController
+    public abstract class ObstacleController : IExecutable
     {
         #region Fields
         
-        protected ObstacleView _obstacleView;
-        protected IObstacleModel _obstacleModel;
+        protected readonly ObstacleView _obstacleView;
+        protected readonly IObstacleModel _obstacleModel;
 
-        public UnityEvent<float> OnPlayerCollide = new UnityEvent<float>();
+        public readonly UnityEvent<float> OnPlayerCollide = new UnityEvent<float>();
 
         #endregion
 
@@ -41,9 +38,15 @@ namespace _Root.Scripts.Controllers.Obstacles
         {
             OnPlayerCollide.Invoke(_obstacleModel.Damage);
         }
+        
+        public virtual void Execute(float deltaTime)
+        {
+            
+        }
 
         #endregion
 
 
+        
     }
 }
