@@ -11,6 +11,7 @@ namespace _Root.Scripts.Models.Obstacles
         [field: SerializeField] public float Duration { get; private set; }
         [field: SerializeField] public float Distance { get; private set; }
         [field: SerializeField] public ObstacleType ObstacleType { get; private set; }
+        [field: SerializeField] public DamageType DamageType { get; private set; }
     }
 
     public enum ObstacleType
@@ -19,5 +20,11 @@ namespace _Root.Scripts.Models.Obstacles
         Spike           = 1,
         Saw             = 2,
         Flamethrower    = 3
+    }
+    
+    public enum DamageType
+    {
+        Health  = 0,
+        Oxygen  = 1
     }
 }

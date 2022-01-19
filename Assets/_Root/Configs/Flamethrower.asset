@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
   <Damage>k__BackingField: 1
-  <Cooldown>k__BackingField: 0
-  <Duration>k__BackingField: 2
+  <Cooldown>k__BackingField: 8
+  <Duration>k__BackingField: 3
   <Distance>k__BackingField: 0
-  <ObstacleType>k__BackingField: 0
+  <ObstacleType>k__BackingField: 3

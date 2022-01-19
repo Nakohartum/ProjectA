@@ -9,7 +9,7 @@ namespace _Root.Scripts.Views
         [field: SerializeField] public Rigidbody2D Rigidbody2D { get; private set; }
         [field: SerializeField] public SpriteRenderer Renderer { get; private set; }
         [field: SerializeField] public Animator Animator { get; private set; }
-
+        [field: SerializeField] public ParticleSystem Particles { get; private set; }
         
     }
 }

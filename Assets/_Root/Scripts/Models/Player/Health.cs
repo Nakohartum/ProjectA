@@ -10,9 +10,7 @@ namespace _Root.Scripts.Models
 
         private float MaxHP { get; set; }
         private float CurrentHP { get; set; }
-        public readonly UnityEvent OnHPEnded = new UnityEvent();
-        public readonly UnityEvent OnHPChange = new UnityEvent();
-        private bool _isUntouchable;
+        
 
         #endregion
 
@@ -31,28 +29,36 @@ namespace _Root.Scripts.Models
 
         #region Methods
 
-        public void RemoveHealthPoints(float value)
+        public bool RemoveHealthPoints(float value, bool isUnTouchable)
         {
-            if (_isUntouchable == false)
+            bool result = true;
+
+            if (!isUnTouchable)
             {
-                ChangeTouchable(true);
                 CurrentHP -= value;
-
-                Debug.Log($"Current {CurrentHP}");
-                if (CurrentHP == 0 || CurrentHP < 0)
-                {
-                    OnHPEnded.Invoke();
-                }
-
-                OnHPChange.Invoke();
             }
+
+            Debug.Log($"Current HP: {CurrentHP}");
+            if (CurrentHP == 0 || CurrentHP < 0)
+            {
+                result = false;
+            }
+
+            return result;
         }
 
-        public void ChangeTouchable(bool value)
+        public bool RemoveHealthPoints(float damage)
         {
-            _isUntouchable = value;
+            bool result = true;
+            CurrentHP -= damage;
+            if (CurrentHP <= 0)
+            {
+                result = false;
+            }
+
+            return result;
         }
-        
+
         public void AddHealthPoints(float value)
         {
             CurrentHP += value;

@@ -26,10 +26,9 @@ namespace _Root.Scripts.Views
             OnStart.Invoke();
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerStay2D(Collider2D other)
         {
             OnPlayerCollide.Invoke();
-            Debug.Log("Done");
         }
 
         #endregion

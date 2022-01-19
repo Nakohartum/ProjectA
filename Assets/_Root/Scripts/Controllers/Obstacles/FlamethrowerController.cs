@@ -32,6 +32,7 @@ namespace _Root.Scripts.Controllers.Obstacles
         {
             _obstacleView.Particles.Play();
         }
+        
 
         public override void Execute(float deltaTime)
         {
