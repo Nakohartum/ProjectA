@@ -365,6 +365,7 @@ MonoBehaviour:
   <Rigidbody2D>k__BackingField: {fileID: 128994666}
   <Renderer>k__BackingField: {fileID: 128994667}
   <Animator>k__BackingField: {fileID: 128994669}
+  <Particles>k__BackingField: {fileID: 0}
 --- !u!50 &128994666
 Rigidbody2D:
   serializedVersion: 4
