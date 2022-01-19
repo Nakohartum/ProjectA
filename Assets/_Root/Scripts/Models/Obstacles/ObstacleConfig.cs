@@ -7,6 +7,8 @@ namespace _Root.Scripts.Models.Obstacles
     {
         [field: SerializeField] public float Damage { get; private set; }
         [field: SerializeField] public float Cooldown { get; private set; }
+        [field: SerializeField] public float Duration { get; private set; }
+        [field: SerializeField] public float Distance { get; private set; }
         [field: SerializeField] public ObstacleType ObstacleType { get; private set; }
     }
 

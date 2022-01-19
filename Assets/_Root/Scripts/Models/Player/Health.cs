@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace _Root.Scripts.Models
 {
@@ -9,8 +10,9 @@ namespace _Root.Scripts.Models
 
         public float MaxHP { get; private set; }
         public float CurrentHP { get; private set; }
-        public event Action OnHPEnded = () => { }; 
-        public event Action OnHPChange = () => { }; 
+        public UnityEvent OnHPEnded = new UnityEvent();
+        public UnityEvent OnHPChange = new UnityEvent();
+        private bool _isUntouchable;
 
         #endregion
 
@@ -31,16 +33,26 @@ namespace _Root.Scripts.Models
 
         public void RemoveHealthPoints(float value)
         {
-            CurrentHP -= value;
-            
-            Debug.Log($"Current {CurrentHP}");
-            if (CurrentHP == 0 || CurrentHP < 0)
+            if (_isUntouchable == false)
             {
-                OnHPEnded.Invoke();
+                ChangeTouchable(true);
+                CurrentHP -= value;
+
+                Debug.Log($"Current {CurrentHP}");
+                if (CurrentHP == 0 || CurrentHP < 0)
+                {
+                    OnHPEnded.Invoke();
+                }
+
+                OnHPChange.Invoke();
             }
-            OnHPChange.Invoke();
         }
 
+        public void ChangeTouchable(bool value)
+        {
+            _isUntouchable = value;
+        }
+        
         public void AddHealthPoints(float value)
         {
             CurrentHP += value;

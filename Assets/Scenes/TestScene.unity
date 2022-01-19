@@ -5704,7 +5704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f67fbf14a6f464cb1fcad3fb341cd35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObstacleConfig: {fileID: 0}
+  ObstacleConfig: {fileID: 11400000, guid: 773cf298c946d514cbda6e542deef2be, type: 2}
   ConnectedCollider: {fileID: 502698072}
   Particles: {fileID: 430291809}
 --- !u!4 &502698075

@@ -1,7 +1,16 @@
-﻿namespace _Root.Scripts.Controllers
+﻿using UnityEngine;
+
+namespace _Root.Scripts.Controllers
 {
     public class Oxygen
     {
+        #region Fields
+
+        private float _timeToRun;
+        private float _timeLeft;
+
+        #endregion
+        
         #region Properties
 
         public float MaxOxygen { get; private set; }
@@ -17,6 +26,8 @@
         {
             MaxOxygen = maxOxygen;
             CurrentOxygen = MaxOxygen;
+            _timeToRun = 1f;
+            _timeLeft = _timeToRun;
         }
 
         #endregion
@@ -26,7 +37,12 @@
 
         public void RemoveOxygen(float deltaTime)
         {
-            CurrentOxygen -= deltaTime;
+            _timeLeft -= deltaTime;
+            if (_timeLeft < 0)
+            {
+                _timeLeft = _timeToRun;
+                CurrentOxygen -= 1;
+            }
             if (CurrentOxygen == 0)
             {
                 HasOxygen = false;
