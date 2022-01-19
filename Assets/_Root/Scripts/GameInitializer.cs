@@ -22,7 +22,7 @@ namespace _Root.Scripts
             executableObjects.AddExecutable(cameraContoller);
             for (int i = 0; i < obstacleControllers.Count; i++)
             {
-                obstacleControllers[i].OnPlayerCollide += playerFactory.GetPlayerModel().Health.RemoveHealthPoints;
+                obstacleControllers[i].OnPlayerCollide.AddListener(playerFactory.GetPlayerModel().Health.RemoveHealthPoints);
             }
         }
     }

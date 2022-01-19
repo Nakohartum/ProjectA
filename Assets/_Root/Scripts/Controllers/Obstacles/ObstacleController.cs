@@ -5,6 +5,7 @@ using _Root.Scripts.Models.Obstacles;
 using _Root.Scripts.Views;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace _Root.Scripts.Controllers.Obstacles
 {
@@ -14,8 +15,8 @@ namespace _Root.Scripts.Controllers.Obstacles
         
         protected ObstacleView _obstacleView;
         protected IObstacleModel _obstacleModel;
-        
-        public event Action<float> OnPlayerCollide = f => { };
+
+        public UnityEvent<float> OnPlayerCollide = new UnityEvent<float>();
 
         #endregion
 

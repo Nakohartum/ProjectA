@@ -31,7 +31,7 @@ namespace _Root.Scripts.Controllers.Obstacles
             for (int i = 0; i < _obstacleViews.Count; i++)
             {
                 var model = new ObstacleModel(_obstacleViews[i].ObstacleConfig.Damage,_obstacleViews[i].ObstacleConfig.ObstacleType,
-                    _obstacleViews[i].ObstacleConfig.Cooldown);
+                    _obstacleViews[i].ObstacleConfig.Cooldown, _obstacleViews[i].ObstacleConfig.Duration);
                 ObstacleController obstacleController = new NullObstacleController(_obstacleViews[i], model);
                 switch (_obstacleViews[i].ObstacleConfig.ObstacleType)
                 {
@@ -42,6 +42,7 @@ namespace _Root.Scripts.Controllers.Obstacles
                         obstacleController = new PikeController(_obstacleViews[i], model);
                         break;
                     case ObstacleType.Saw:
+                        obstacleController = new SawController(_obstacleViews[i], model, _obstacleViews[i].ObstacleConfig.Distance);
                         break;
                     case ObstacleType.Flamethrower:
                         break;
