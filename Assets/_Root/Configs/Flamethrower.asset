@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b1eaa4066546c2b6d386751f204555, type: 3}
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
-  <Damage>k__BackingField: 1
+  <Damage>k__BackingField: 2
   <Cooldown>k__BackingField: 8
   <Duration>k__BackingField: 3
   <Distance>k__BackingField: 0
   <ObstacleType>k__BackingField: 3
+  <DamageType>k__BackingField: 1
