@@ -96,10 +96,10 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
+    textureCompression: 0
+    compressionQuality: 100
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -108,10 +108,10 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
+    textureCompression: 0
+    compressionQuality: 100
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -120,10 +120,10 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
+    textureCompression: 0
+    compressionQuality: 100
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -180,10 +180,10 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
+    textureCompression: 0
+    compressionQuality: 100
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
@@ -196,10 +196,10 @@ TextureImporter:
       name: tiles_0
       rect:
         serializedVersion: 2
-        x: 160
-        y: 86
-        width: 984
-        height: 1011
+        x: 166
+        y: 91
+        width: 972
+        height: 1006
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -217,10 +217,10 @@ TextureImporter:
       name: tiles_1
       rect:
         serializedVersion: 2
-        x: 1407
-        y: 86
-        width: 983
-        height: 1011
+        x: 1412
+        y: 91
+        width: 973
+        height: 1006
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,10 +238,10 @@ TextureImporter:
       name: tiles_2
       rect:
         serializedVersion: 2
-        x: 2653
-        y: 86
-        width: 984
-        height: 1000
+        x: 2659
+        y: 91
+        width: 972
+        height: 989
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,10 +259,10 @@ TextureImporter:
       name: tiles_3
       rect:
         serializedVersion: 2
-        x: 3837
-        y: 86
-        width: 983
-        height: 983
+        x: 3843
+        y: 91
+        width: 972
+        height: 972
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -280,10 +280,10 @@ TextureImporter:
       name: tiles_4
       rect:
         serializedVersion: 2
-        x: 5021
-        y: 86
-        width: 983
-        height: 983
+        x: 5026
+        y: 91
+        width: 972
+        height: 972
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,10 +301,10 @@ TextureImporter:
       name: tiles_5
       rect:
         serializedVersion: 2
-        x: 6130
-        y: 86
-        width: 984
-        height: 1000
+        x: 6136
+        y: 91
+        width: 972
+        height: 989
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,10 +322,10 @@ TextureImporter:
       name: tiles_6
       rect:
         serializedVersion: 2
-        x: 7302
-        y: 86
-        width: 978
-        height: 1011
+        x: 7308
+        y: 91
+        width: 972
+        height: 1006
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -343,10 +343,10 @@ TextureImporter:
       name: tiles_7
       rect:
         serializedVersion: 2
-        x: 8440
-        y: 86
-        width: 984
-        height: 1011
+        x: 8446
+        y: 91
+        width: 972
+        height: 1006
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -365,9 +365,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 9521
-        y: 86
-        width: 978
-        height: 1011
+        y: 91
+        width: 972
+        height: 1006
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -385,10 +385,10 @@ TextureImporter:
       name: tiles_9
       rect:
         serializedVersion: 2
-        x: 10642
-        y: 86
-        width: 983
-        height: 1011
+        x: 10647
+        y: 91
+        width: 973
+        height: 1006
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
