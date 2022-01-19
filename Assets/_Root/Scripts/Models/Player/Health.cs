@@ -38,7 +38,6 @@ namespace _Root.Scripts.Models
                 CurrentHP -= value;
             }
 
-            Debug.Log($"Current HP: {CurrentHP}");
             if (CurrentHP == 0 || CurrentHP < 0)
             {
                 result = false;
