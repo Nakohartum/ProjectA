@@ -18,6 +18,7 @@ namespace _Root.Scripts.Controllers.Obstacles
         public FlamethrowerController(ObstacleView obstacleView, IObstacleModel obstacleModel) : base(obstacleView, obstacleModel)
         {
             _timeToRun = _obstacleModel.Cooldown;
+            _obstacleView.Particles.Stop();
             var particlesMain = _obstacleView.Particles.main;
             particlesMain.duration = _obstacleModel.Duration;
         }
