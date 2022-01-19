@@ -10,20 +10,21 @@ namespace _Root.Scripts.Controllers
     {
         #region Fields
 
-        private readonly PlayerView _playerView;
-        private readonly ContactPoller _contactPoller;
-        private readonly IPlayerModel _playerModel;
-        private readonly Rigidbody2D _rigidbody;
+        private PlayerView _playerView;
+        private ContactPoller _contactPoller;
+        private IPlayerModel _playerModel;
+        private Rigidbody2D _rigidbody;
         private const int JUMP_WALL_COEF = 5;
         private const int JUMP_VALUE_ITERATIONS = 60;
-        private readonly PlayerHorizontalInput _horizontalInput;
-        private readonly PlayerJumpController _jumpController;
+        private PlayerHorizontalInput _horizontalInput;
+        private PlayerJumpController _jumpController;
         private bool _jumpControl;
-        private int _jumpIterations;
-        private readonly int _jumpHash;
-        private readonly int _runHash;
-        private readonly int _onWallHash;
-        private readonly int _onWallAnimHash;
+        private int _jumpIterations = 0;
+        private int _jumpCount = 0;
+        private int _jumpHash;
+        private int _runHash;
+        private int _onWallHash;
+        private int _onWallAnimHash;
         private float _horizontalMove;
         private float _jumpAxis;
 
@@ -40,7 +41,7 @@ namespace _Root.Scripts.Controllers
             _contactPoller = contactPoller;
             _playerView = playerView;
             _jumpHash = Animator.StringToHash("IsJumping");
-            _runHash = Animator.StringToHash("Duration");
+            _runHash = Animator.StringToHash("Speed");
             _onWallHash = Animator.StringToHash("IsOnWall");
             _onWallAnimHash = Animator.StringToHash("OnWall");
             _horizontalInput = new PlayerHorizontalInput();

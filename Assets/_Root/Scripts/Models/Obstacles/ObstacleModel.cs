@@ -6,8 +6,6 @@
 
         public float Damage { get; }
         public float Cooldown { get; }
-        
-        public float Duration { get; }
         public ObstacleType ObstacleType { get; }
 
         #endregion
@@ -15,12 +13,11 @@
 
         #region Constructor
 
-        public ObstacleModel(float damage, ObstacleType obstacleType, float cooldown, float duration)
+        public ObstacleModel(float damage, ObstacleType obstacleType, float cooldown)
         {
             Damage = damage;
             ObstacleType = obstacleType;
             Cooldown = cooldown;
-            Duration = duration;
         }
 
         #endregion

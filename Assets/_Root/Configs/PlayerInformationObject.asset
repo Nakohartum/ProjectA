@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: PlayerInformationObject
   m_EditorClassIdentifier: 
   PlayerInformation:
-    <Speed>k__BackingField: 10
-    <JumpSpeed>k__BackingField: 80
-    <HealthPoint>k__BackingField: 20
+    <Speed>k__BackingField: 8
+    <JumpSpeed>k__BackingField: 58
+    <HealthPoint>k__BackingField: 100
     <OxygenPoint>k__BackingField: 50
-    <DashPower>k__BackingField: 130
+    <DashPower>k__BackingField: 120
     <DashTime>k__BackingField: 0.2
-    <BlockTime>k__BackingField: 1
+    <BlockTime>k__BackingField: 0.5

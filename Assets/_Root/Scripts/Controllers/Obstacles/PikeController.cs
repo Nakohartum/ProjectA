@@ -8,12 +8,6 @@ namespace _Root.Scripts.Controllers.Obstacles
 {
     public class PikeController : ObstacleController
     {
-        #region Fields
-
-        private float _waitTime;
-
-        #endregion
-        
         #region Constructor
 
         public PikeController(ObstacleView obstacleView, IObstacleModel obstacleModel) : base(obstacleView, obstacleModel)
@@ -29,19 +23,23 @@ namespace _Root.Scripts.Controllers.Obstacles
         private void PlayAnimation()
         {
             SetTrapActive();
-            Sequence sequence = DOTween.Sequence();
-            sequence.Append(_obstacleView.gameObject.transform.DOMove(new Vector3(
-                _obstacleView.gameObject.transform.position.x,
-                _obstacleView.gameObject.transform.position.y + 1.5f), 0.5f));
-            sequence.Append(_obstacleView.gameObject.transform.DOMove(new Vector3(
-                _obstacleView.gameObject.transform.position.x,
-                _obstacleView.gameObject.transform.position.y + 1.5f), _obstacleModel.Cooldown));
-            sequence.Append(_obstacleView.gameObject.transform.DOMove(new Vector3(
-                _obstacleView.gameObject.transform.position.x,
-                _obstacleView.gameObject.transform.position.y), 0.5f)).OnComplete(SetTrapActive);
-
+            _obstacleView.gameObject.transform.DOMove(new Vector3(_obstacleView.gameObject.transform.position.x,
+                _obstacleView.gameObject.transform.position.y + 1.5f), 0.5f).OnComplete(OffTrap);
         }
         
+        private void OffTrap()
+        {
+            _obstacleView.StartCoroutine(OffTrapRoutine());
+        }
+        
+        private IEnumerator OffTrapRoutine()
+        {
+            yield return new WaitForSeconds(_obstacleModel.Cooldown);
+            
+            _obstacleView.gameObject.transform.DOMove(new Vector3(_obstacleView.gameObject.transform.position.x,
+                _obstacleView.gameObject.transform.position.y - 1.5f), 0.5f).OnComplete(SetTrapActive);
+            
+        }
 
         private void SetTrapActive()
         {

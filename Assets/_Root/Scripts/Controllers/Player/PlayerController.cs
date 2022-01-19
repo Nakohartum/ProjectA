@@ -13,10 +13,10 @@ namespace _Root.Scripts.Controllers
     {
         #region Fields
 
-        private readonly IPlayerModel _playerModel;
-        private readonly PlayerView _playerView;
-        private readonly PlayerInputController _playerInputController;
-        private readonly ExecutableObjects _executableObjects;
+        private IPlayerModel _playerModel;
+        private PlayerView _playerView;
+        private PlayerInputController _playerInputController;
+        private ExecutableObjects _executableObjects;
         private bool _blockControllers;
         private float DASH_TIMER;
         private float BLOCK_TIMER;
@@ -35,8 +35,9 @@ namespace _Root.Scripts.Controllers
             _playerModel = playerModel;
             _playerInputController = playerInputController;
             _executableObjects = executableObjects;
-            _playerModel.Health.OnHPEnded.AddListener(Dispose);
-            _playerModel.Health.OnHPChange.AddListener(HPChangeAnimation);
+            _playerView.StartCoroutine(MinusOxygen());
+            _playerModel.Health.OnHPEnded += Dispose;
+            _playerModel.Health.OnHPChange += HPChangeAnimation;
             DASH_TIMER = _playerModel.DashTime;
             BLOCK_TIMER = _playerModel.BlockTime;
             _currentBlockTime = BLOCK_TIMER;
@@ -53,7 +54,7 @@ namespace _Root.Scripts.Controllers
             sequence.Append( _playerView.Renderer.DOFade(0.5f, 0.5f));
             sequence.Append( _playerView.Renderer.DOFade(1f, 0.5f));
             sequence.Append(_playerView.Renderer.DOFade(0.5f, 0.5f));
-            sequence.Append( _playerView.Renderer.DOFade(1f, 0.5f)).OnComplete(MakeTouchable);
+            sequence.Append( _playerView.Renderer.DOFade(1f, 0.5f));
             sequence.Play();
         }
 
@@ -62,14 +63,8 @@ namespace _Root.Scripts.Controllers
         
         #region Methods
 
-        private void MakeTouchable()
-        {
-            _playerModel.Health.ChangeTouchable(false);
-        }
-        
         public void Execute(float deltaTime)
         {
-            _playerModel.Oxygen.RemoveOxygen(deltaTime);
             if (!Input.GetButton("Dash") && _currentDashTimer != DASH_TIMER)
             {
                 _currentDashTimer = DASH_TIMER;
@@ -113,14 +108,21 @@ namespace _Root.Scripts.Controllers
             }
         }
         
-        
+        private IEnumerator MinusOxygen()
+        {
+            while (_playerModel.Oxygen.HasOxygen)
+            {
+                yield return new WaitForSeconds(1f);
+                _playerModel.Oxygen.RemoveOxygen(1f);
+            }
+            _playerView.StopCoroutine(MinusOxygen());
+        }
         public void Dispose()
         {
             _executableObjects.RemoveExecutable(this);
             _playerInputController.Dispose();
-            _playerModel.Health.OnHPEnded.RemoveListener(Dispose);
-            _playerModel.Health.OnHPChange.RemoveListener(HPChangeAnimation);
-            
+            _playerModel.Health.OnHPEnded -= Dispose;
+            _playerModel.Health.OnHPChange -= HPChangeAnimation;
             Object.Destroy(_playerView.gameObject);
         }
 
