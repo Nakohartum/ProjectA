@@ -6,5 +6,6 @@
         float Cooldown { get; }
         float Duration { get; }
         ObstacleType ObstacleType { get; }
+        DamageType DamageType { get; }
     }
 }

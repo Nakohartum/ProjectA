@@ -1,6 +1,7 @@
 ﻿using System;
 using _Root.Scripts.Controllers.Interfaces;
 using _Root.Scripts.Models;
+using _Root.Scripts.Models.Obstacles;
 using _Root.Scripts.Views;
 using DG.Tweening;
 using UnityEngine;
@@ -18,10 +19,14 @@ namespace _Root.Scripts.Controllers
         private readonly PlayerInputController _playerInputController;
         private readonly ExecutableObjects _executableObjects;
         private bool _blockControllers;
+        private bool _isUntouchable;
+        private bool _playAnimation = true;
         private float DASH_TIMER;
         private float BLOCK_TIMER;
         private float _currentDashTimer;
         private float _currentBlockTime;
+        private float _damageDelay = 1f;
+        private float _currentTimeDelay;
 
         #endregion
 
@@ -35,16 +40,54 @@ namespace _Root.Scripts.Controllers
             _playerModel = playerModel;
             _playerInputController = playerInputController;
             _executableObjects = executableObjects;
-            _playerModel.Health.OnHPEnded.AddListener(Dispose);
-            _playerModel.Health.OnHPChange.AddListener(HPChangeAnimation);
             DASH_TIMER = _playerModel.DashTime;
             BLOCK_TIMER = _playerModel.BlockTime;
             _currentBlockTime = BLOCK_TIMER;
             _currentDashTimer = DASH_TIMER;
+            _currentTimeDelay = _damageDelay;
         }
 
-        private void HPChangeAnimation()
+        
+
+        #endregion
+
+        
+        #region Methods
+
+        public void ApplyEffects(float damage, DamageType damageType)
         {
+            if (damageType == DamageType.Health) 
+            {
+                if (_playerModel.Health.RemoveHealthPoints(damage, _isUntouchable))
+                {
+                    _isUntouchable = true;
+                }
+                if (_isUntouchable && _playAnimation)
+                {
+                    _playAnimation = false;
+                    Fading();
+                }
+                else if (!_isUntouchable)
+                {
+                    Dispose();
+                }
+            }
+            else if (damageType == DamageType.Oxygen)
+            {
+                _playerModel.Oxygen.RemoveAmountOfOxygen(damage, _isUntouchable);
+            }
+
+        }
+        
+        private void Bleeding()
+        {
+            _playerView.Particles.Play();
+        }
+
+        private void Fading()
+        {
+            _playAnimation = false;
+            Bleeding();
             Sequence sequence = DOTween.Sequence();
             sequence.Append( _playerView.Renderer.DOFade(0.5f, 0.5f));
             sequence.Append( _playerView.Renderer.DOFade(1f, 0.5f));
@@ -56,20 +99,26 @@ namespace _Root.Scripts.Controllers
             sequence.Append( _playerView.Renderer.DOFade(1f, 0.5f)).OnComplete(MakeTouchable);
             sequence.Play();
         }
-
-        #endregion
-
         
-        #region Methods
-
         private void MakeTouchable()
         {
-            _playerModel.Health.ChangeTouchable(false);
+            _isUntouchable = false;
+            _playAnimation = true;
         }
+        
         
         public void Execute(float deltaTime)
         {
+            _currentTimeDelay -= deltaTime;
             _playerModel.Oxygen.RemoveOxygen(deltaTime);
+            if (!_playerModel.Oxygen.HasOxygen && _currentTimeDelay < 0)
+            {
+                _currentTimeDelay = _damageDelay;
+                if (!_playerModel.Health.RemoveHealthPoints(1))
+                {
+                    Dispose();
+                }
+            }
             if (!Input.GetButton("Dash") && _currentDashTimer != DASH_TIMER)
             {
                 _currentDashTimer = DASH_TIMER;
@@ -118,8 +167,6 @@ namespace _Root.Scripts.Controllers
         {
             _executableObjects.RemoveExecutable(this);
             _playerInputController.Dispose();
-            _playerModel.Health.OnHPEnded.RemoveListener(Dispose);
-            _playerModel.Health.OnHPChange.RemoveListener(HPChangeAnimation);
             
             Object.Destroy(_playerView.gameObject);
         }

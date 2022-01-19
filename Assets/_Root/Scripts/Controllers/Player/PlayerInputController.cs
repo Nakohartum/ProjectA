@@ -137,11 +137,24 @@ namespace _Root.Scripts.Controllers
                     _rigidbody.gravityScale = 0;
                     _rigidbody.velocity = Vector2.zero;
                 }
-                if (Input.GetButtonDown("Jump"))
+
+                if (_playerView.Renderer.flipX)
                 {
-                    _rigidbody.AddForce(Vector2.up * _playerModel.JumpSpeed * JUMP_WALL_COEF);
-                    _rigidbody.AddForce(Vector2.left * _playerModel.JumpSpeed * JUMP_WALL_COEF*2);
+                    if (CanJump(_contactPoller.HasLeftContact))
+                    {
+                        _rigidbody.AddForce(Vector2.up * _playerModel.JumpSpeed * JUMP_WALL_COEF);
+                    
+                    }
                 }
+                else
+                {
+                    if (CanJump(_contactPoller.HasRightContact))
+                    {
+                        _rigidbody.AddForce(Vector2.up * _playerModel.JumpSpeed * JUMP_WALL_COEF);
+                    
+                    }
+                }
+                
             }
             else
             {
@@ -150,6 +163,11 @@ namespace _Root.Scripts.Controllers
             }
         }
 
+        private bool CanJump(bool contact)
+        {
+            return Input.GetButtonDown("Jump") && !contact;
+        }
+        
         private void Reflect()
         {
             if (_horizontalMove > 0)

@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Root.Configs;
 using _Root.Scripts.Controllers;
 using _Root.Scripts.Controllers.Camera;
 using _Root.Scripts.Controllers.Obstacles;
+using _Root.Scripts.Models.Obstacles;
 using _Root.Scripts.Views;
 
 
@@ -23,7 +25,22 @@ namespace _Root.Scripts
             executableObjects.AddExecutable(cameraContoller);
             for (int i = 0; i < obstacleControllers.Count; i++)
             {
-                obstacleControllers[i].OnPlayerCollide.AddListener(playerFactory.GetPlayerModel().Health.RemoveHealthPoints);
+                switch (obstacleViews[i].ObstacleConfig.ObstacleType)
+                {
+                    case ObstacleType.Pike:
+                        obstacleControllers[i].OnPlayerCollide.AddListener(playerController.ApplyEffects);
+                        break;
+                    case ObstacleType.Spike:
+                        obstacleControllers[i].OnPlayerCollide.AddListener(playerController.ApplyEffects);
+                        break;
+                    case ObstacleType.Saw:
+                        obstacleControllers[i].OnPlayerCollide.AddListener(playerController.ApplyEffects);
+                        break;
+                    case ObstacleType.Flamethrower:
+                        obstacleControllers[i].OnPlayerCollide.AddListener(playerController.ApplyEffects);
+                        break;
+                }
+                
             }
         }
 

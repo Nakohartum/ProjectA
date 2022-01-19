@@ -13,7 +13,7 @@ namespace _Root.Scripts.Controllers.Obstacles
         protected readonly ObstacleView _obstacleView;
         protected readonly IObstacleModel _obstacleModel;
 
-        public readonly UnityEvent<float> OnPlayerCollide = new UnityEvent<float>();
+        public readonly UnityEvent<float, DamageType> OnPlayerCollide = new UnityEvent<float, DamageType>();
 
         #endregion
 
@@ -25,7 +25,6 @@ namespace _Root.Scripts.Controllers.Obstacles
             _obstacleView = obstacleView;
             _obstacleModel = obstacleModel;
             _obstacleView.OnPlayerCollide += ApplyEffect;
-            
         }
 
 
@@ -36,7 +35,7 @@ namespace _Root.Scripts.Controllers.Obstacles
 
         protected virtual void ApplyEffect()
         {
-            OnPlayerCollide.Invoke(_obstacleModel.Damage);
+            OnPlayerCollide.Invoke(_obstacleModel.Damage, _obstacleModel.DamageType);
         }
         
         public virtual void Execute(float deltaTime)

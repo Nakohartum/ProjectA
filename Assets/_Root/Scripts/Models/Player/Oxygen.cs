@@ -1,4 +1,7 @@
-﻿namespace _Root.Scripts.Controllers
+﻿using UnityEngine;
+using UnityEngine.Events;
+
+namespace _Root.Scripts.Controllers
 {
     public class Oxygen
     {
@@ -13,7 +16,7 @@
 
         private float MaxOxygen { get; set; }
         private float CurrentOxygen { get; set; }
-        private bool HasOxygen { get; set; } = true;
+        public bool HasOxygen { get; private set; } = true;
 
         #endregion
 
@@ -35,6 +38,7 @@
 
         public void RemoveOxygen(float deltaTime)
         {
+            
             _timeLeft -= deltaTime;
             if (_timeLeft < 0)
             {
@@ -47,6 +51,21 @@
             }
         }
 
+
+        public void RemoveAmountOfOxygen(float amount, bool isUnTouchable)
+        {
+            if (!isUnTouchable)
+            {
+                CurrentOxygen -= amount;
+            }
+
+            if (CurrentOxygen == 0 || CurrentOxygen < 0)
+            {
+                HasOxygen = false;
+            }
+
+        }
+        
         public void AddOxygen(float value)
         {
             if (CurrentOxygen > MaxOxygen || CurrentOxygen == MaxOxygen)
