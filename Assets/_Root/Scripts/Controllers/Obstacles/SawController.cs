@@ -1,8 +1,8 @@
-﻿using _Root.Scripts.Controllers.Interfaces;
-using _Root.Scripts.Models.Obstacles;
+﻿using _Root.Scripts.Models.Obstacles;
 using _Root.Scripts.Views;
 using DG.Tweening;
 using UnityEngine;
+
 
 namespace _Root.Scripts.Controllers.Obstacles
 {
@@ -10,16 +10,24 @@ namespace _Root.Scripts.Controllers.Obstacles
     {
         #region Fields
 
-        private float _distanceToRush;
-        private Vector2 _startPos;
+        private readonly float _distanceToRush;
+        private readonly Vector2 _startPos;
 
         #endregion
+
+        #region Constructor
+
         public SawController(ObstacleView obstacleView, IObstacleModel obstacleModel, float distanceToRush) : base(obstacleView, obstacleModel)
         {
             _distanceToRush = distanceToRush;
             _startPos = _obstacleView.transform.position;
             _obstacleView.OnStart += StartAnimation;
         }
+
+        #endregion
+
+
+        #region Methods
 
         private void StartAgain()
         {
@@ -28,7 +36,6 @@ namespace _Root.Scripts.Controllers.Obstacles
 
         public void StartAnimation()
         {
-            Debug.Log("Start");
             var vectorMove = _startPos;
             vectorMove.x = _distanceToRush;
             Sequence sequence = DOTween.Sequence();
@@ -38,6 +45,9 @@ namespace _Root.Scripts.Controllers.Obstacles
             sequence.Append(_obstacleView.transform.DOMove(_startPos, _obstacleModel.Cooldown)).OnComplete(StartAgain);
             
         }
+
+        #endregion
+        
 
     }
 }

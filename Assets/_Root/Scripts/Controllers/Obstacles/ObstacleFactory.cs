@@ -2,22 +2,25 @@
 using _Root.Scripts.Models.Obstacles;
 using _Root.Scripts.Views;
 
+
 namespace _Root.Scripts.Controllers.Obstacles
 {
     public class ObstacleFactory
     {
         #region Fields
 
-        private List<ObstacleView> _obstacleViews;
+        private readonly List<ObstacleView> _obstacleViews;
+        private readonly ExecutableObjects _executableObjects;
 
         #endregion
 
 
         #region Constructor
 
-        public ObstacleFactory(List<ObstacleView> obstacleViews)
+        public ObstacleFactory(List<ObstacleView> obstacleViews, ExecutableObjects executableObjects)
         {
             _obstacleViews = obstacleViews;
+            _executableObjects = executableObjects;
         }
 
         #endregion
@@ -45,6 +48,8 @@ namespace _Root.Scripts.Controllers.Obstacles
                         obstacleController = new SawController(_obstacleViews[i], model, _obstacleViews[i].ObstacleConfig.Distance);
                         break;
                     case ObstacleType.Flamethrower:
+                        obstacleController = new FlamethrowerController(_obstacleViews[i], model);
+                        _executableObjects.AddExecutable(obstacleController);
                         break;
                 }
                 

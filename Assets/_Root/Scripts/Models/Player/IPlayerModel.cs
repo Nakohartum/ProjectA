@@ -1,5 +1,6 @@
 ﻿using _Root.Scripts.Controllers;
 
+
 namespace _Root.Scripts.Models
 {
     public interface IPlayerModel

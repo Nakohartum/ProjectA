@@ -1,22 +1,26 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using _Root.Configs;
 using _Root.Scripts;
 using _Root.Scripts.Controllers;
-using _Root.Scripts.Controllers.Camera;
 using _Root.Scripts.Models;
-using _Root.Scripts.Models.Obstacles;
 using _Root.Scripts.Views;
 using UnityEngine;
 
+
 public class EntryPoint : MonoBehaviour
 {
+    #region Fields
+
     [SerializeField] private PlayerView _playerView;
     [SerializeField] private CameraView _cameraView;
     [SerializeField] private PlayerInformationObject _playerInformationObject;
     [SerializeField] private List<ObstacleView> _obstacleViews;
     private ExecutableObjects _executableObjects;
+
+    #endregion
+
+
+    #region Unity Methods
 
     private void Awake()
     {
@@ -33,4 +37,6 @@ public class EntryPoint : MonoBehaviour
         var deltaTime = Time.deltaTime;
         _executableObjects.Execute(deltaTime);
     }
+
+    #endregion
 }

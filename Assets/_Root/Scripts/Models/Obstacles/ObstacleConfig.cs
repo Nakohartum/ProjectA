@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+
 namespace _Root.Scripts.Models.Obstacles
 {
     [CreateAssetMenu(fileName = nameof(ObstacleConfig), menuName = "Models/"+nameof(ObstacleConfig), order = 0)]

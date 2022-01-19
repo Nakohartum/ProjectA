@@ -1,6 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
+
 
 namespace _Root.Scripts.Models
 {
@@ -8,10 +8,10 @@ namespace _Root.Scripts.Models
     {
         #region Properties
 
-        public float MaxHP { get; private set; }
-        public float CurrentHP { get; private set; }
-        public UnityEvent OnHPEnded = new UnityEvent();
-        public UnityEvent OnHPChange = new UnityEvent();
+        private float MaxHP { get; set; }
+        private float CurrentHP { get; set; }
+        public readonly UnityEvent OnHPEnded = new UnityEvent();
+        public readonly UnityEvent OnHPChange = new UnityEvent();
         private bool _isUntouchable;
 
         #endregion

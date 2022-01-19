@@ -1,6 +1,6 @@
 ﻿using _Root.Configs;
-using _Root.Scripts.Controllers.Camera;
 using _Root.Scripts.Models;
+
 
 namespace _Root.Scripts.Controllers
 {
@@ -8,8 +8,8 @@ namespace _Root.Scripts.Controllers
     {
         #region Fields
 
-        private LevelObjects _levelObjects;
-        private ExecutableObjects _executableObjects;
+        private readonly LevelObjects _levelObjects;
+        private readonly ExecutableObjects _executableObjects;
         private IPlayerModel _playerModel;
         
         #endregion
