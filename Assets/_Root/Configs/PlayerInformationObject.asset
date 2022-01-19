@@ -15,7 +15,7 @@ MonoBehaviour:
   PlayerInformation:
     <Speed>k__BackingField: 8
     <JumpSpeed>k__BackingField: 58
-    <HealthPoint>k__BackingField: 100
+    <HealthPoint>k__BackingField: 5
     <OxygenPoint>k__BackingField: 50
     <DashPower>k__BackingField: 120
     <DashTime>k__BackingField: 0.1
