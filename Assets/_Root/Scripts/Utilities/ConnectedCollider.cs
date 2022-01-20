@@ -10,10 +10,8 @@ namespace _Root.Scripts.Utilities
     {
         #region Fields
 
-        [field: SerializeField] public IcyFloor IcyFloor { get; private set; }
         [field: SerializeField] public Collider2D Collider { get; private set; }
         public event Action OnTriggerCollide = () => { };
-        public event Action<float> ApplyEffect = f => { };
 
         #endregion
 
@@ -23,11 +21,6 @@ namespace _Root.Scripts.Utilities
         private void OnTriggerEnter2D(Collider2D other)
         {
             OnTriggerCollide.Invoke();
-        }
-
-        private void OnTriggerStay2D(Collider2D other)
-        {
-            ApplyEffect.Invoke(IcyFloor.SpeedMultiplier);
         }
 
         #endregion

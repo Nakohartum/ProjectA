@@ -36,7 +36,7 @@ namespace _Root.Scripts.Controllers
         #region Constructor
 
         public PlayerController(PlayerView playerView, IPlayerModel playerModel,
-            PlayerInputController playerInputController, ExecutableObjects executableObjects, List<IcyFloor> icyFloors)
+            PlayerInputController playerInputController, ExecutableObjects executableObjects)
         {
             _playerView = playerView;
             _playerModel = playerModel;
@@ -47,10 +47,6 @@ namespace _Root.Scripts.Controllers
             _currentBlockTime = BLOCK_TIMER;
             _currentDashTimer = DASH_TIMER;
             _currentTimeDelay = _damageDelay;
-            for (int i = 0; i < icyFloors.Count; i++)
-            {
-                icyFloors[i].ConnectedCollider.ApplyEffect += Accelerate;
-            }
         }
 
         
@@ -155,7 +151,6 @@ namespace _Root.Scripts.Controllers
             {
                 if (_blockControllers)
                 {
-                    Debug.Log("Can't dash");
                     _currentBlockTime -= deltaTime;
                     if (_currentBlockTime < 0)
                     {

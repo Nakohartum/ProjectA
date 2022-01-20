@@ -16,10 +16,10 @@ namespace _Root.Scripts
         #region Constructor
 
         public GameInitializer(ExecutableObjects executableObjects, LevelObjects levelObjects, List<ObstacleView> obstacleViews,
-            List<PortalView> portalViews, List<IcyFloor> icyFloors)
+            List<PortalView> portalViews)
         {
             var obstacleFactory = new ObstacleFactory(obstacleViews, executableObjects);
-            var playerFactory = new PlayerFactory(levelObjects, executableObjects, icyFloors);
+            var playerFactory = new PlayerFactory(levelObjects, executableObjects);
             var playerController = playerFactory.CreatePlayer();
             var obstacleControllers = obstacleFactory.CreateObstacles();
             var cameraContoller = new CameraController(levelObjects.CameraView, executableObjects, playerController);
