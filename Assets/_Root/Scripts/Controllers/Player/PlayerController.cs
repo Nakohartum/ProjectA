@@ -62,7 +62,7 @@ namespace _Root.Scripts.Controllers
 
         public void Accelerate(float value)
         {
-            _playerView.Rigidbody2D.velocity = new Vector2(value, 0);
+            _playerView.Rigidbody2D.AddForce(new Vector2(value, 0));
         }
 
         public void ApplyEffects(float damage, DamageType damageType)
