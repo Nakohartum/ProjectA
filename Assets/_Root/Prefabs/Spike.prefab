@@ -157,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleConfig: {fileID: 11400000, guid: 2c7de489d20a6ef41917f23fa3172a7c, type: 2}
   ConnectedCollider: {fileID: 0}
+  Particles: {fileID: 0}
 --- !u!61 &3126380025362849985
 BoxCollider2D:
   m_ObjectHideFlags: 0

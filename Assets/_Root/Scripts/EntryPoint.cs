@@ -24,6 +24,8 @@ public class EntryPoint : MonoBehaviour
 
     private void Awake()
     {
+        _playerView = Object.FindObjectOfType<PlayerView>();
+        _cameraView = Object.FindObjectOfType<CameraView>();
         _executableObjects = new ExecutableObjects();
         var levelObjects = new LevelObjects();
         levelObjects.CameraView = _cameraView;
@@ -37,6 +39,8 @@ public class EntryPoint : MonoBehaviour
         var deltaTime = Time.deltaTime;
         _executableObjects.Execute(deltaTime);
     }
+    
+    
 
     #endregion
 }
