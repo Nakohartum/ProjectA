@@ -17,6 +17,7 @@ public class EntryPoint : MonoBehaviour
     [SerializeField] private PlayerInformationObject _playerInformationObject;
     [SerializeField] private List<ObstacleView> _obstacleViews;
     [SerializeField] private List<PortalView> _portalViews;
+    [SerializeField] private List<IcyFloor> _icyFloors;
     private ExecutableObjects _executableObjects;
 
     #endregion
@@ -35,7 +36,7 @@ public class EntryPoint : MonoBehaviour
         levelObjects.CameraView = _cameraView;
         levelObjects.PlayerView = _playerView;
         levelObjects.PlayerInformationObject = _playerInformationObject;
-        new GameInitializer(_executableObjects, levelObjects, _obstacleViews, _portalViews);
+        new GameInitializer(_executableObjects, levelObjects, _obstacleViews, _portalViews, _icyFloors);
     }
 
     private void Update()

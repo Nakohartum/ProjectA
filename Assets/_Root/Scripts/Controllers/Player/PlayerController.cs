@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using _Root.Scripts.Controllers.Interfaces;
 using _Root.Scripts.Models;
 using _Root.Scripts.Models.Obstacles;
@@ -35,7 +36,7 @@ namespace _Root.Scripts.Controllers
         #region Constructor
 
         public PlayerController(PlayerView playerView, IPlayerModel playerModel,
-            PlayerInputController playerInputController, ExecutableObjects executableObjects)
+            PlayerInputController playerInputController, ExecutableObjects executableObjects, List<IcyFloor> icyFloors)
         {
             _playerView = playerView;
             _playerModel = playerModel;
@@ -46,6 +47,10 @@ namespace _Root.Scripts.Controllers
             _currentBlockTime = BLOCK_TIMER;
             _currentDashTimer = DASH_TIMER;
             _currentTimeDelay = _damageDelay;
+            for (int i = 0; i < icyFloors.Count; i++)
+            {
+                icyFloors[i].ConnectedCollider.ApplyEffect += Accelerate;
+            }
         }
 
         
@@ -54,6 +59,11 @@ namespace _Root.Scripts.Controllers
 
         
         #region Methods
+
+        public void Accelerate(float value)
+        {
+            _playerView.Rigidbody2D.velocity = new Vector2(value, 0);
+        }
 
         public void ApplyEffects(float damage, DamageType damageType)
         {

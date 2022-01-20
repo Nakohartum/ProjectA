@@ -1,5 +1,7 @@
-﻿using _Root.Configs;
+﻿using System.Collections.Generic;
+using _Root.Configs;
 using _Root.Scripts.Models;
+using _Root.Scripts.Views;
 
 
 namespace _Root.Scripts.Controllers
@@ -11,16 +13,18 @@ namespace _Root.Scripts.Controllers
         private readonly LevelObjects _levelObjects;
         private readonly ExecutableObjects _executableObjects;
         private IPlayerModel _playerModel;
-        
+        private List<IcyFloor> _icyFloors;
+
         #endregion
 
 
         #region Constructor
 
-        public PlayerFactory(LevelObjects levelObjects, ExecutableObjects executableObjects)
+        public PlayerFactory(LevelObjects levelObjects, ExecutableObjects executableObjects, List<IcyFloor> icyFloors)
         {
             _levelObjects = levelObjects;
             _executableObjects = executableObjects;
+            _icyFloors = icyFloors;
         }
 
         #endregion
@@ -44,7 +48,7 @@ namespace _Root.Scripts.Controllers
                 new PlayerInputController(_playerModel, _levelObjects.PlayerView.Rigidbody2D, contactPoller, 
                     _levelObjects.PlayerView);
             var playerController = new PlayerController(_levelObjects.PlayerView, _playerModel, 
-                playerInputController, _executableObjects);
+                playerInputController, _executableObjects, _icyFloors);
             return playerController;
         }
 
