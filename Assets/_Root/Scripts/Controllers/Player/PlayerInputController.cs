@@ -60,8 +60,17 @@ namespace _Root.Scripts.Controllers
             _contactPoller.UpdateContacts();
             _horizontalInput.Execute(deltaTime);
             _jumpController.Execute(deltaTime);
-            Vector3 vectorMove = new Vector3(_horizontalMove * _playerModel.Speed, _rigidbody.velocity.y);
+            Vector3 vectorMove = new Vector3(_horizontalMove * _playerModel.Speed, _playerView.Rigidbody2D.velocity.y);
             _rigidbody.velocity = vectorMove; 
+            // _rigidbody.AddForce(vectorMove);
+            // if (_rigidbody.velocity.x > _playerModel.Speed)
+            // {
+            //     _rigidbody.velocity = vectorMove;
+            // }
+            // else if (_rigidbody.velocity.x < -_playerModel.Speed)
+            // {
+            //     _rigidbody.velocity = vectorMove;
+            // }
             Reflect();
             Jump();
             JumpFromWall();
