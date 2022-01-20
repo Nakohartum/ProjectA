@@ -28,13 +28,13 @@ namespace _Root.Scripts.Controllers.Obstacles
             var position = _obstacleView.gameObject.transform.position;
             sequence.Append(_obstacleView.gameObject.transform.DOMove(new Vector3(
                 position.x,
-                position.y + 1.5f), 0.5f));
+                position.y + 1.5f), _obstacleModel.Duration));
             sequence.Append(_obstacleView.gameObject.transform.DOMove(new Vector3(
                 position.x,
                 position.y + 1.5f), _obstacleModel.Cooldown));
             sequence.Append(_obstacleView.gameObject.transform.DOMove(new Vector3(
                 position.x,
-                position.y), 0.5f)).OnComplete(SetTrapActive);
+                position.y), _obstacleModel.Duration)).OnComplete(SetTrapActive);
 
         }
         
