@@ -27,6 +27,7 @@ namespace _Root.Scripts.Controllers
         private float _currentBlockTime;
         private float _damageDelay = 1f;
         private float _currentTimeDelay;
+        public event Action<Collider2D> Teleportation = coll => {}; 
 
         #endregion
 
@@ -119,10 +120,14 @@ namespace _Root.Scripts.Controllers
                     Dispose();
                 }
             }
+
+            if (Input.GetButtonDown("Use"))
+            {
+                Teleportation.Invoke(_playerView.Collider);
+            }
             if (!Input.GetButton("Dash") && _currentDashTimer != DASH_TIMER)
             {
                 _currentDashTimer = DASH_TIMER;
-                Debug.Log("Ready to dash");
             }
             if (_currentDashTimer < 0)
             {
@@ -150,7 +155,6 @@ namespace _Root.Scripts.Controllers
                     return;
                 }
                 _currentDashTimer -= deltaTime;
-                Debug.Log("Ready to dash");
                 if (_playerView.Renderer.flipX)
                 {
                     _playerInputController.Dash(-_playerModel.DashPower);
