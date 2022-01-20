@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using _Root.Configs;
 using _Root.Scripts.Controllers;
 using _Root.Scripts.Controllers.Camera;
+using _Root.Scripts.Controllers.Level;
 using _Root.Scripts.Controllers.Obstacles;
 using _Root.Scripts.Models.Obstacles;
 using _Root.Scripts.Views;
@@ -14,13 +15,14 @@ namespace _Root.Scripts
     {
         #region Constructor
 
-        public GameInitializer(ExecutableObjects executableObjects, LevelObjects levelObjects, List<ObstacleView> obstacleViews)
+        public GameInitializer(ExecutableObjects executableObjects, LevelObjects levelObjects, List<ObstacleView> obstacleViews,
+            List<PortalView> portalViews)
         {
             var obstacleFactory = new ObstacleFactory(obstacleViews, executableObjects);
             var playerFactory = new PlayerFactory(levelObjects, executableObjects);
             var playerController = playerFactory.CreatePlayer();
             var obstacleControllers = obstacleFactory.CreateObstacles();
-            var cameraContoller = new CameraController(levelObjects.CameraView, executableObjects);
+            var cameraContoller = new CameraController(levelObjects.CameraView, executableObjects, playerController);
             executableObjects.AddExecutable(playerController);
             executableObjects.AddExecutable(cameraContoller);
             for (int i = 0; i < obstacleControllers.Count; i++)
@@ -42,6 +44,13 @@ namespace _Root.Scripts
                 }
                 
             }
+
+            for (int i = 0; i < portalViews.Count; i++)
+            {
+                new PortalController(portalViews[i], playerController);
+            }
+            
+            
         }
 
         #endregion
