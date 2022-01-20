@@ -21,6 +21,11 @@ namespace _Root.Scripts.Views
 
         #region Unity Methods
 
+        private void Awake()
+        {
+            ConnectedCollider = GetComponentInChildren<ConnectedCollider>();
+        }
+
         private void Start()
         {
             OnStart.Invoke();
@@ -30,7 +35,7 @@ namespace _Root.Scripts.Views
         {
             OnPlayerCollide.Invoke();
         }
-
+        
         #endregion
     }
 }

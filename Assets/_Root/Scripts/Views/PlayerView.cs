@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 
 namespace _Root.Scripts.Views
@@ -10,6 +11,14 @@ namespace _Root.Scripts.Views
         [field: SerializeField] public SpriteRenderer Renderer { get; private set; }
         [field: SerializeField] public Animator Animator { get; private set; }
         [field: SerializeField] public ParticleSystem Particles { get; private set; }
-        
+
+        private void Awake()
+        {
+            Collider = GetComponent<BoxCollider2D>();
+            Rigidbody2D = GetComponent<Rigidbody2D>();
+            Renderer = GetComponentInChildren<SpriteRenderer>();
+            Animator = GetComponentInChildren<Animator>();
+            Particles = GetComponentInChildren<ParticleSystem>();
+        }
     }
 }

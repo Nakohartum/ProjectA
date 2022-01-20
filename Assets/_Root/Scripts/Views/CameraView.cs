@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 
 namespace _Root.Scripts.Views
@@ -10,5 +12,10 @@ namespace _Root.Scripts.Views
         [field: SerializeField] public float MinYPosition { get; private set; }
         [field: SerializeField] public float MaxYPosition { get; private set; }
         [field: SerializeField] public Transform TargetPosition { get; private set; }
+
+        private void Awake()
+        {
+            TargetPosition = Object.FindObjectOfType<PlayerView>().transform;
+        }
     } 
 }
