@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using _Root.Scripts.Controllers.Interfaces;
 using _Root.Scripts.Models;
+using _Root.Scripts.Models.Buffs;
 using _Root.Scripts.Models.Obstacles;
 using _Root.Scripts.Views;
 using DG.Tweening;
@@ -57,7 +58,7 @@ namespace _Root.Scripts.Controllers
         
         #region Methods
 
-        public void ApplyEffects(float damage, DamageType damageType)
+        public void ApplyNegativeEffects(float damage, DamageType damageType)
         {
             if (damageType == DamageType.Health) 
             {
@@ -78,6 +79,19 @@ namespace _Root.Scripts.Controllers
             else if (damageType == DamageType.Oxygen)
             {
                 _playerModel.Oxygen.RemoveAmountOfOxygen(damage, _isUntouchable);
+            }
+
+        }
+        
+        public void ApplyPositiveEffects(float value, BuffType buffType)
+        {
+            if (buffType == BuffType.Heal) 
+            {
+                _playerModel.Health.AddHealthPoints(value);
+            }
+            else if (buffType == BuffType.Oxygen)
+            {
+                _playerModel.Oxygen.AddOxygen(value);
             }
 
         }
