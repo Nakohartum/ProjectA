@@ -1,5 +1,7 @@
-﻿using _Root.Scripts.Models.Obstacles;
+﻿using System;
+using _Root.Scripts.Models.Obstacles;
 using _Root.Scripts.Views;
+using UnityEngine;
 
 
 namespace _Root.Scripts.Controllers.Obstacles
@@ -9,6 +11,9 @@ namespace _Root.Scripts.Controllers.Obstacles
         #region Fields
         
         private float _timeToRun;
+        private int _isReadyToShootHash;
+        private bool _isShooting = true;
+        private float _timer;
 
         #endregion
 
@@ -20,7 +25,10 @@ namespace _Root.Scripts.Controllers.Obstacles
             _timeToRun = _obstacleModel.Cooldown;
             _obstacleView.Particles.Stop();
             var particlesMain = _obstacleView.Particles.main;
+            _isReadyToShootHash = Animator.StringToHash("IsReadyToFire");
             particlesMain.duration = _obstacleModel.Duration;
+            _timer = _obstacleModel.Duration;
+            _obstacleView.OnAnimationEnds += ExploreFire;
         }
 
         #endregion
@@ -30,17 +38,43 @@ namespace _Root.Scripts.Controllers.Obstacles
 
         private void ExploreFire()
         {
-            _obstacleView.Particles.Play();
+            if (!_obstacleView.Particles.isPlaying)
+            {
+                _obstacleView.Particles.Play();
+            }
+            
         }
         
 
         public override void Execute(float deltaTime)
         {
-            _timeToRun -= deltaTime;
-            if (_timeToRun < 0)
+            if (_isShooting)
             {
-                ExploreFire();
+                _timer -= deltaTime;
+                if (_timer < 0)
+                {
+                    _timer = _obstacleModel.Duration;
+                    _obstacleView.Particles.Stop();
+                    _isShooting = false;
+                }
+            }
+            else
+            {
+                if (_timeToRun < 0)
+                {
+                    _isShooting = true;
+                }
+            }
+
+            if (_isShooting)
+            {
+                _obstacleView.Animator.SetBool(_isReadyToShootHash, true);
                 _timeToRun = _obstacleModel.Cooldown;
+            }
+            else
+            {
+                _obstacleView.Animator.SetBool(_isReadyToShootHash, false);
+                _timeToRun -= deltaTime;
             }
             if (_obstacleView.Particles.isPlaying)
             {
