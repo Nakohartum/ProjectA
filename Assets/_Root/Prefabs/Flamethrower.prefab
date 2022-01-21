@@ -131,7 +131,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -305,7 +305,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 2
       minColor: {r: 1, g: 0.55291915, b: 0.09099996, a: 1}
-      maxColor: {r: 0.881, g: 0.22060242, b: 0.05550302, a: 1}
+      maxColor: {r: 1, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1378,7 +1378,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -1386,7 +1386,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 1, g: 0, b: 0, a: 1}
         key1: {r: 1, g: 1, b: 1, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -4938,6 +4938,7 @@ MonoBehaviour:
   ObstacleConfig: {fileID: 11400000, guid: 773cf298c946d514cbda6e542deef2be, type: 2}
   ConnectedCollider: {fileID: 4221034725788089585}
   Particles: {fileID: 4221034725726017480}
+  Animator: {fileID: 71568052}
 --- !u!61 &4221034725788089584
 BoxCollider2D:
   m_ObjectHideFlags: 0
