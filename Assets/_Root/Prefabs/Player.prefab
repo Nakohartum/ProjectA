@@ -52,7 +52,8 @@ MonoBehaviour:
   <Rigidbody2D>k__BackingField: {fileID: 8321459877907933576}
   <Renderer>k__BackingField: {fileID: 8321459879754641377}
   <Animator>k__BackingField: {fileID: 8321459879754641379}
-  <Particles>k__BackingField: {fileID: 8321459878540295241}
+  <BloodParticles>k__BackingField: {fileID: 0}
+  <EvaporationParticle>k__BackingField: {fileID: 0}
 --- !u!50 &8321459877907933576
 Rigidbody2D:
   serializedVersion: 4

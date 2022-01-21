@@ -78,6 +78,7 @@ namespace _Root.Scripts.Controllers
             }
             else if (damageType == DamageType.Oxygen)
             {
+                _playerView.EvaporationParticle.Play();
                 _playerModel.Oxygen.RemoveAmountOfOxygen(damage, _isUntouchable);
             }
 
@@ -103,7 +104,7 @@ namespace _Root.Scripts.Controllers
         
         private void Bleeding()
         {
-            _playerView.Particles.Play();
+            _playerView.BloodParticles.Play();
         }
 
         private void Fading()
