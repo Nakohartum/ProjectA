@@ -8,5 +8,16 @@ namespace _Root.Scripts.Views
     {
         [field: SerializeField] public BuffConfig BuffConfig { get; private set; }
         public event Action OnPlayerCollide = () => { };
+        public event Action OnObjectDestroy = () => { };
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            OnPlayerCollide.Invoke();
+        }
+
+        private void OnDestroy()
+        {
+            OnObjectDestroy.Invoke();
+        }
     }
 }

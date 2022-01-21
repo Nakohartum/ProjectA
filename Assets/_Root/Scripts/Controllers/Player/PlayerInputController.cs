@@ -206,7 +206,6 @@ namespace _Root.Scripts.Controllers
         public void ChangeJumpAccess(bool value)
         {
             _canJump = value;
-            Debug.Log("Worked");
         }
         
         public void Dispose()

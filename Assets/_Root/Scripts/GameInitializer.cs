@@ -31,24 +31,10 @@ namespace _Root.Scripts
             {
                 obstacleControllers[i].OnPlayerCollide.AddListener(playerController.ApplyNegativeEffects);
             }
-            // for (int i = 0; i < buffControlelrs.Count; i++)
-            // {
-            //     switch (obstacleViews[i].ObstacleConfig.ObstacleType)
-            //     {
-            //         case ObstacleType.Pike:
-            //             obstacleControllers[i].OnPlayerCollide.AddListener(playerController.ApplyNegativeEffects);
-            //             break;
-            //         case ObstacleType.Spike:
-            //             obstacleControllers[i].OnPlayerCollide.AddListener(playerController.ApplyNegativeEffects);
-            //             break;
-            //         case ObstacleType.Saw:
-            //             obstacleControllers[i].OnPlayerCollide.AddListener(playerController.ApplyNegativeEffects);
-            //             break;
-            //         case ObstacleType.Flamethrower:
-            //             obstacleControllers[i].OnPlayerCollide.AddListener(playerController.ApplyNegativeEffects);
-            //             break;
-            //     }
-            // }
+            for (int i = 0; i < buffControlelrs.Count; i++)
+            {
+                buffControlelrs[i].OnPlayerCollide.AddListener(playerController.ApplyPositiveEffects);
+            }
 
             for (int i = 0; i < portalViews.Count; i++)
             {

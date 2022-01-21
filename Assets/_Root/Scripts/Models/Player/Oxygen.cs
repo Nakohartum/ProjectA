@@ -68,10 +68,6 @@ namespace _Root.Scripts.Controllers
         
         public void AddOxygen(float value)
         {
-            if (CurrentOxygen > MaxOxygen || CurrentOxygen == MaxOxygen)
-            {
-                return;
-            }
             CurrentOxygen += value;
             if (CurrentOxygen > MaxOxygen)
             {
