@@ -12,6 +12,7 @@ namespace _Root.Scripts.Controllers.Obstacles
 
         private readonly float _distanceToRush;
         private readonly Vector2 _startPos;
+        private int _isWorkingHash;
 
         #endregion
 
@@ -22,6 +23,7 @@ namespace _Root.Scripts.Controllers.Obstacles
             _distanceToRush = distanceToRush;
             _startPos = _obstacleView.transform.position;
             _obstacleView.OnStart += StartAnimation;
+            _isWorkingHash = Animator.StringToHash("IsWorking");
         }
 
         #endregion
@@ -39,11 +41,17 @@ namespace _Root.Scripts.Controllers.Obstacles
             var vectorMove = _startPos;
             vectorMove.x = _distanceToRush;
             Sequence sequence = DOTween.Sequence();
-            sequence.Append(_obstacleView.transform.DOMove(vectorMove, _obstacleModel.Duration).SetEase(Ease.Linear));
-            sequence.Append(_obstacleView.transform.DOMove(vectorMove, _obstacleModel.Cooldown));
-            sequence.Append(_obstacleView.transform.DOMove(_startPos, _obstacleModel.Duration).SetEase(Ease.Linear));
+            MakeIdle();
+            sequence.Append(_obstacleView.transform.DOMove(vectorMove, _obstacleModel.Duration).SetEase(Ease.Linear).OnComplete(MakeIdle));
+            sequence.Append(_obstacleView.transform.DOMove(vectorMove, _obstacleModel.Cooldown).OnComplete(MakeIdle));
+            sequence.Append(_obstacleView.transform.DOMove(_startPos, _obstacleModel.Duration).SetEase(Ease.Linear).OnComplete(MakeIdle));
             sequence.Append(_obstacleView.transform.DOMove(_startPos, _obstacleModel.Cooldown)).OnComplete(StartAgain);
             
+        }
+
+        private void MakeIdle()
+        {
+            _obstacleView.Animator.SetBool(_isWorkingHash, !_obstacleView.Animator.GetBool(_isWorkingHash));
         }
 
         #endregion

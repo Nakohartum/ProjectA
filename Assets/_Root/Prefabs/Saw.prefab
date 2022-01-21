@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 266127702644878863}
   - component: {fileID: 266127702644878862}
   - component: {fileID: 266127702644878864}
+  - component: {fileID: 978084704}
   m_Layer: 0
   m_Name: Saw
   m_TagString: Untagged
@@ -47,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ObstacleConfig: {fileID: 11400000, guid: c2c0a34557e7af246b511854d17fc2bc, type: 2}
   ConnectedCollider: {fileID: 0}
+  Particles: {fileID: 0}
+  Animator: {fileID: 978084704}
 --- !u!58 &266127702644878864
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -62,7 +65,26 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.44812572
+--- !u!95 &978084704
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266127702644878861}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 37c3f70508ec32841b8f2679f560d7f8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &266127703027125553
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,9 +156,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847,
+  m_Sprite: {fileID: -7202470272610415902, guid: 8e8944ebea048de4a85975cad2c34205,
     type: 3}
-  m_Color: {r: 0.11320752, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
