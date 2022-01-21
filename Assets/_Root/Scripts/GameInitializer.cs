@@ -16,7 +16,7 @@ namespace _Root.Scripts
         #region Constructor
 
         public GameInitializer(ExecutableObjects executableObjects, LevelObjects levelObjects, List<ObstacleView> obstacleViews,
-            List<PortalView> portalViews)
+            List<PortalView> portalViews, List<StickyFloor> stickyFloors)
         {
             var obstacleFactory = new ObstacleFactory(obstacleViews, executableObjects);
             var playerFactory = new PlayerFactory(levelObjects, executableObjects);
@@ -48,6 +48,11 @@ namespace _Root.Scripts
             for (int i = 0; i < portalViews.Count; i++)
             {
                 new PortalController(portalViews[i], playerController);
+            }
+
+            for (int i = 0; i < stickyFloors.Count; i++)
+            {
+                stickyFloors[i].ConnectedCollider.OnCollide += playerController.BlockJump;
             }
             
             
