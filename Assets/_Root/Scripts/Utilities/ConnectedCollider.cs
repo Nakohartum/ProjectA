@@ -12,6 +12,10 @@ namespace _Root.Scripts.Utilities
 
         [field: SerializeField] public Collider2D Collider { get; private set; }
         public event Action OnTriggerCollide = () => { };
+        
+        public event Action<bool> OnCollide = b => { };
+
+        
 
         #endregion
 
@@ -21,6 +25,12 @@ namespace _Root.Scripts.Utilities
         private void OnTriggerEnter2D(Collider2D other)
         {
             OnTriggerCollide.Invoke();
+            OnCollide.Invoke(false);
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            OnCollide.Invoke(true);
         }
 
         #endregion

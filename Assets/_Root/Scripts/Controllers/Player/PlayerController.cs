@@ -56,11 +56,6 @@ namespace _Root.Scripts.Controllers
         
         #region Methods
 
-        public void Accelerate(float value)
-        {
-            _playerView.Rigidbody2D.AddForce(new Vector2(value, 0));
-        }
-
         public void ApplyEffects(float damage, DamageType damageType)
         {
             if (damageType == DamageType.Health) 
@@ -181,5 +176,10 @@ namespace _Root.Scripts.Controllers
         }
 
         #endregion
+
+        public void BlockJump(bool obj)
+        {
+            _playerInputController.ChangeJumpAccess(obj);
+        }
     }
 }

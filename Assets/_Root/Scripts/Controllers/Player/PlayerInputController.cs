@@ -27,6 +27,7 @@ namespace _Root.Scripts.Controllers
         private float _horizontalMove;
         private float _jumpAxis;
         private bool _isMoving;
+        private bool _canJump = true;
 
         #endregion
 
@@ -118,28 +119,31 @@ namespace _Root.Scripts.Controllers
 
         private void Jump()
         {
-            if (_jumpAxis > 0.1f)
+            if (_canJump)
             {
-                if (_contactPoller.IsGrounded)
+                if (_jumpAxis > 0.1f)
                 {
-                    _jumpControl = true;
+                    if (_contactPoller.IsGrounded)
+                    {
+                        _jumpControl = true;
+                    }
                 }
-            }
-            else
-            {
-                _jumpControl = false;
-            }
+                else
+                {
+                    _jumpControl = false;
+                }
 
-            if (_jumpControl)
-            {
-                if (_jumpIterations++ < JUMP_VALUE_ITERATIONS)
+                if (_jumpControl)
                 {
-                    _rigidbody.AddForce(Vector2.up * _playerModel.JumpSpeed / _jumpIterations);
+                    if (_jumpIterations++ < JUMP_VALUE_ITERATIONS)
+                    {
+                        _rigidbody.AddForce(Vector2.up * _playerModel.JumpSpeed / _jumpIterations);
+                    }
                 }
-            }
-            else
-            {
-                _jumpIterations = 0;
+                else
+                {
+                    _jumpIterations = 0;
+                }
             }
 
         }
@@ -197,6 +201,12 @@ namespace _Root.Scripts.Controllers
             {
                 _playerView.Renderer.flipX = true;
             }
+        }
+
+        public void ChangeJumpAccess(bool value)
+        {
+            _canJump = value;
+            Debug.Log("Worked");
         }
         
         public void Dispose()
