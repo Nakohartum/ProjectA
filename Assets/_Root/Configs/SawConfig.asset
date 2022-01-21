@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SawConfig
   m_EditorClassIdentifier: 
   <Damage>k__BackingField: 2
-  <Cooldown>k__BackingField: 0
+  <Cooldown>k__BackingField: 2
   <Duration>k__BackingField: 1
   <Distance>k__BackingField: 7
   <ObstacleType>k__BackingField: 2
+  <DamageType>k__BackingField: 0
