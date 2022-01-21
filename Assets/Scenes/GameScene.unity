@@ -16148,6 +16148,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8321459877907933576, guid: c80ddc616a0a4334c97f87c509883e36,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c80ddc616a0a4334c97f87c509883e36, type: 3}
 --- !u!1001 &1296477246
@@ -24712,7 +24717,6 @@ MonoBehaviour:
   - {fileID: 1630092308}
   - {fileID: 1318960849}
   _portalViews: []
-  _icyFloors: []
 --- !u!4 &1932292493
 Transform:
   m_ObjectHideFlags: 0
