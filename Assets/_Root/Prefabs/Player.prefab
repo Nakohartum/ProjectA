@@ -52,8 +52,8 @@ MonoBehaviour:
   <Rigidbody2D>k__BackingField: {fileID: 8321459877907933576}
   <Renderer>k__BackingField: {fileID: 8321459879754641377}
   <Animator>k__BackingField: {fileID: 8321459879754641379}
-  <BloodParticles>k__BackingField: {fileID: 0}
-  <EvaporationParticle>k__BackingField: {fileID: 0}
+  <BloodParticles>k__BackingField: {fileID: 8321459878540295241}
+  <EvaporationParticle>k__BackingField: {fileID: 4283021441779121669}
 --- !u!50 &8321459877907933576
 Rigidbody2D:
   serializedVersion: 4
@@ -4977,7 +4977,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 411116949372920590, guid: df3fa3c2dc3cb50498a4ab27ee9779ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5034,7 +5034,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8445974062113513773}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.021999836, y: -0.34099996, z: 0}
+  m_LocalPosition: {x: 0.02, y: -0.238, z: -0.423}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8321459877907933301}
@@ -5048,22 +5048,22 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8445974062113513773}
   serializedVersion: 7
-  lengthInSec: 5
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
   startDelay:
     serializedVersion: 2
-    minMaxState: 3
-    scalar: 0.5
+    minMaxState: 0
+    scalar: 0
     minScalar: 0
     maxCurve:
       serializedVersion: 2
