@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Damage>k__BackingField: 5
   <Cooldown>k__BackingField: 2
-  <Duration>k__BackingField: 0.7
+  <Duration>k__BackingField: 0.8
   <Distance>k__BackingField: 0
   <ObstacleType>k__BackingField: 0
   <DamageType>k__BackingField: 0
