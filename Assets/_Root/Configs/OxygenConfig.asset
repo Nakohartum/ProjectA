@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147d9738c1244adbb7796241802e216b, type: 3}
   m_Name: OxygenConfig
   m_EditorClassIdentifier: 
-  <Amount>k__BackingField: 5
-  <BuffType>k__BackingField: 1
+  <Amount>k__BackingField: 15
+  <BuffType>k__BackingField: 2
