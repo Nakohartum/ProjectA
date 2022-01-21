@@ -16,6 +16,7 @@ namespace _Root.Scripts.Controllers.Level
             _portalView.OnPortalStay += MakeTeleportActive;
             _portalView.OnDestroyAction += Dispose;
             _playerController = playerController;
+            _portalView.OnPortalStay += _playerController.MakeAlowed;
         }
 
         private void MakeTeleportActive()

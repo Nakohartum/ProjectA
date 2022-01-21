@@ -28,6 +28,7 @@ namespace _Root.Scripts.Controllers
         private float _currentBlockTime;
         private float _damageDelay = 1f;
         private float _currentTimeDelay;
+        private bool _isAlowedToTP;
         public event Action<Collider2D> Teleportation = coll => {}; 
 
         #endregion
@@ -80,6 +81,11 @@ namespace _Root.Scripts.Controllers
             }
 
         }
+
+        public void MakeAlowed()
+        {
+            _isAlowedToTP = !_isAlowedToTP;
+        }
         
         private void Bleeding()
         {
@@ -124,7 +130,11 @@ namespace _Root.Scripts.Controllers
 
             if (Input.GetButtonDown("Use"))
             {
-                Teleportation.Invoke(_playerView.Collider);
+                
+                if (_isAlowedToTP)
+                {
+                    Teleportation.Invoke(_playerView.Collider);
+                }
             }
             if (!Input.GetButton("Dash") && _currentDashTimer != DASH_TIMER)
             {
