@@ -15,6 +15,8 @@ namespace _Root.Scripts.Views
         public event Action OnStart = () => { };
         public ConnectedCollider ConnectedCollider;
         public ParticleSystem Particles;
+        public Animator Animator;
+        public event Action OnAnimationEnds = () => { };
 
         #endregion
 
@@ -35,7 +37,12 @@ namespace _Root.Scripts.Views
         {
             OnPlayerCollide.Invoke();
         }
-        
+
+        public void EndAnimation()
+        {
+            OnAnimationEnds.Invoke();
+        }
+
         #endregion
     }
 }
