@@ -97,10 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b734cc39cd544721b4cd26da1ae7d9d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MinXPosition>k__BackingField: -99999
-  <MaxXPosition>k__BackingField: 99999
-  <MinYPosition>k__BackingField: -99999
-  <MaxYPosition>k__BackingField: 99999
+  <MinXPosition>k__BackingField: -0.98
+  <MaxXPosition>k__BackingField: 247.14
+  <MinYPosition>k__BackingField: -75.27
+  <MaxYPosition>k__BackingField: -3.6
   <TargetPosition>k__BackingField: {fileID: 0}
   <FlashingImage>k__BackingField: {fileID: 8528789871966403309}
 --- !u!1 &8528789871231093004
