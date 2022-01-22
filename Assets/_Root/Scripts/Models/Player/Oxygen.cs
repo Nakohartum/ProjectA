@@ -52,11 +52,13 @@ namespace _Root.Scripts.Controllers
         }
 
 
-        public void RemoveAmountOfOxygen(float amount, bool isUnTouchable)
+        public bool RemoveAmountOfOxygen(float amount, bool isUnTouchable)
         {
+            bool res = false;
             if (!isUnTouchable)
             {
                 CurrentOxygen -= amount;
+                res = true;
             }
 
             if (CurrentOxygen == 0 || CurrentOxygen < 0)
@@ -64,6 +66,7 @@ namespace _Root.Scripts.Controllers
                 HasOxygen = false;
             }
 
+            return res;
         }
         
         public void AddOxygen(float value)
