@@ -61,6 +61,10 @@ namespace _Root.Scripts.Models
         public void AddHealthPoints(float value)
         {
             CurrentHP += value;
+            if (CurrentHP > MaxHP)
+            {
+                CurrentHP = MaxHP;
+            }
         }
 
         #endregion

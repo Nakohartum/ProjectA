@@ -10,7 +10,8 @@ namespace _Root.Scripts.Views
         [field: SerializeField] public Rigidbody2D Rigidbody2D { get; private set; }
         [field: SerializeField] public SpriteRenderer Renderer { get; private set; }
         [field: SerializeField] public Animator Animator { get; private set; }
-        [field: SerializeField] public ParticleSystem Particles { get; private set; }
+        [field: SerializeField] public ParticleSystem BloodParticles { get; private set; }
+        [field: SerializeField] public ParticleSystem EvaporationParticle { get; private set; }
 
         private void Awake()
         {
@@ -18,7 +19,6 @@ namespace _Root.Scripts.Views
             Rigidbody2D = GetComponent<Rigidbody2D>();
             Renderer = GetComponentInChildren<SpriteRenderer>();
             Animator = GetComponentInChildren<Animator>();
-            Particles = GetComponentInChildren<ParticleSystem>();
         }
     }
 }

@@ -16,33 +16,24 @@ namespace _Root.Scripts
         #region Constructor
 
         public GameInitializer(ExecutableObjects executableObjects, LevelObjects levelObjects, List<ObstacleView> obstacleViews,
-            List<PortalView> portalViews, List<StickyFloor> stickyFloors)
+            List<PortalView> portalViews, List<StickyFloor> stickyFloors, List<BuffView> buffViews)
         {
             var obstacleFactory = new ObstacleFactory(obstacleViews, executableObjects);
             var playerFactory = new PlayerFactory(levelObjects, executableObjects);
+            var buffFactory = new BuffFactory(buffViews, executableObjects);
             var playerController = playerFactory.CreatePlayer();
             var obstacleControllers = obstacleFactory.CreateObstacles();
             var cameraContoller = new CameraController(levelObjects.CameraView, executableObjects, playerController);
+            var buffControlelrs = buffFactory.CreateBuffs();
             executableObjects.AddExecutable(playerController);
             executableObjects.AddExecutable(cameraContoller);
             for (int i = 0; i < obstacleControllers.Count; i++)
             {
-                switch (obstacleViews[i].ObstacleConfig.ObstacleType)
-                {
-                    case ObstacleType.Pike:
-                        obstacleControllers[i].OnPlayerCollide.AddListener(playerController.ApplyEffects);
-                        break;
-                    case ObstacleType.Spike:
-                        obstacleControllers[i].OnPlayerCollide.AddListener(playerController.ApplyEffects);
-                        break;
-                    case ObstacleType.Saw:
-                        obstacleControllers[i].OnPlayerCollide.AddListener(playerController.ApplyEffects);
-                        break;
-                    case ObstacleType.Flamethrower:
-                        obstacleControllers[i].OnPlayerCollide.AddListener(playerController.ApplyEffects);
-                        break;
-                }
-                
+                obstacleControllers[i].OnPlayerCollide.AddListener(playerController.ApplyNegativeEffects);
+            }
+            for (int i = 0; i < buffControlelrs.Count; i++)
+            {
+                buffControlelrs[i].OnPlayerCollide.AddListener(playerController.ApplyPositiveEffects);
             }
 
             for (int i = 0; i < portalViews.Count; i++)

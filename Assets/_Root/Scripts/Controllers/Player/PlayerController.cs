@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using _Root.Scripts.Controllers.Interfaces;
 using _Root.Scripts.Models;
+using _Root.Scripts.Models.Buffs;
 using _Root.Scripts.Models.Obstacles;
 using _Root.Scripts.Views;
 using DG.Tweening;
@@ -28,6 +29,7 @@ namespace _Root.Scripts.Controllers
         private float _currentBlockTime;
         private float _damageDelay = 1f;
         private float _currentTimeDelay;
+        private bool _isAlowedToTP;
         public event Action<Collider2D> Teleportation = coll => {}; 
 
         #endregion
@@ -56,7 +58,7 @@ namespace _Root.Scripts.Controllers
         
         #region Methods
 
-        public void ApplyEffects(float damage, DamageType damageType)
+        public void ApplyNegativeEffects(float damage, DamageType damageType)
         {
             if (damageType == DamageType.Health) 
             {
@@ -76,14 +78,33 @@ namespace _Root.Scripts.Controllers
             }
             else if (damageType == DamageType.Oxygen)
             {
+                _playerView.EvaporationParticle.Play();
                 _playerModel.Oxygen.RemoveAmountOfOxygen(damage, _isUntouchable);
             }
 
         }
         
+        public void ApplyPositiveEffects(float value, BuffType buffType)
+        {
+            if (buffType == BuffType.Heal) 
+            {
+                _playerModel.Health.AddHealthPoints(value);
+            }
+            else if (buffType == BuffType.Oxygen)
+            {
+                _playerModel.Oxygen.AddOxygen(value);
+            }
+
+        }
+
+        public void MakeAlowed()
+        {
+            _isAlowedToTP = !_isAlowedToTP;
+        }
+        
         private void Bleeding()
         {
-            _playerView.Particles.Play();
+            _playerView.BloodParticles.Play();
         }
 
         private void Fading()
@@ -124,7 +145,11 @@ namespace _Root.Scripts.Controllers
 
             if (Input.GetButtonDown("Use"))
             {
-                Teleportation.Invoke(_playerView.Collider);
+                
+                if (_isAlowedToTP)
+                {
+                    Teleportation.Invoke(_playerView.Collider);
+                }
             }
             if (!Input.GetButton("Dash") && _currentDashTimer != DASH_TIMER)
             {
