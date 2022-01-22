@@ -31,11 +31,12 @@ namespace _Root.Scripts.Models
 
         public bool RemoveHealthPoints(float value, bool isUnTouchable)
         {
-            bool result = true;
+            bool result = false;
 
             if (!isUnTouchable)
             {
                 CurrentHP -= value;
+                result = true;
             }
 
             if (CurrentHP == 0 || CurrentHP < 0)

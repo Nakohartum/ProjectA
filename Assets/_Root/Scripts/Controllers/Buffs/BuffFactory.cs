@@ -45,6 +45,9 @@ namespace _Root.Scripts.Controllers.Obstacles
                     case BuffType.Oxygen:
                         buffController = new OxygenController(_buffViews[i], model);
                         break;
+                    case BuffType.HandOfGod:
+                        buffController = new HandOfGodController(_buffViews[i], model);
+                        break;
                 }
                 
                 buffControllers.Add(buffController);

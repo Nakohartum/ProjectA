@@ -22,7 +22,7 @@ namespace _Root.Scripts.Controllers
         private readonly ExecutableObjects _executableObjects;
         private bool _blockControllers;
         private bool _isUntouchable;
-        private bool _playAnimation = true;
+        private bool _playAnimation;
         private float DASH_TIMER;
         private float BLOCK_TIMER;
         private float _currentDashTimer;
@@ -30,6 +30,9 @@ namespace _Root.Scripts.Controllers
         private float _damageDelay = 1f;
         private float _currentTimeDelay;
         private bool _isAlowedToTP;
+        private bool _canUseAbility;
+        private float _untouchableCounts;
+        private bool _abilityUsed;
         public event Action<Collider2D> Teleportation = coll => {}; 
 
         #endregion
@@ -65,6 +68,7 @@ namespace _Root.Scripts.Controllers
                 if (_playerModel.Health.RemoveHealthPoints(damage, _isUntouchable))
                 {
                     _isUntouchable = true;
+                    _playAnimation = true;
                 }
                 if (_isUntouchable && _playAnimation)
                 {
@@ -78,8 +82,11 @@ namespace _Root.Scripts.Controllers
             }
             else if (damageType == DamageType.Oxygen)
             {
-                _playerView.EvaporationParticle.Play();
-                _playerModel.Oxygen.RemoveAmountOfOxygen(damage, _isUntouchable);
+                if (_playerModel.Oxygen.RemoveAmountOfOxygen(damage, _isUntouchable))
+                {
+                    _playerView.EvaporationParticle.Play();
+                }
+
             }
 
         }
@@ -94,7 +101,10 @@ namespace _Root.Scripts.Controllers
             {
                 _playerModel.Oxygen.AddOxygen(value);
             }
-
+            else if (buffType == BuffType.HandOfGod)
+            {  
+                GetMoreUntouchables(value);
+            }
         }
 
         public void MakeAlowed()
@@ -126,7 +136,6 @@ namespace _Root.Scripts.Controllers
         private void MakeTouchable()
         {
             _isUntouchable = false;
-            _playAnimation = true;
         }
         
         
@@ -143,9 +152,40 @@ namespace _Root.Scripts.Controllers
                 }
             }
 
+            if (_untouchableCounts > 0)
+            {
+                _canUseAbility = true;
+            }
+            else
+            {
+                _canUseAbility = false;
+                Debug.Log("Did");
+            }
+
+            
+            if (Input.GetButton("UseAbilities"))
+            {
+                if (_canUseAbility)
+                {
+                    _abilityUsed = true;
+                    _untouchableCounts -= deltaTime;
+                    if (!_isUntouchable)
+                    {
+                        _isUntouchable = true;
+                    }
+                }
+            }
+            else
+            {
+                if (_abilityUsed)
+                {
+                    MakeTouchable();
+                }
+
+                _abilityUsed = false;
+            }
             if (Input.GetButtonDown("Use"))
             {
-                
                 if (_isAlowedToTP)
                 {
                     Teleportation.Invoke(_playerView.Collider);
@@ -164,6 +204,10 @@ namespace _Root.Scripts.Controllers
             _playerInputController.Move(deltaTime);
         }
 
+        private void GetMoreUntouchables(float value)
+        {
+            _untouchableCounts += value;
+        }
         
         private void Dash(float deltaTime)
         {
@@ -199,12 +243,14 @@ namespace _Root.Scripts.Controllers
             
             Object.Destroy(_playerView.gameObject);
         }
-
-        #endregion
-
+        
         public void BlockJump(bool obj)
         {
             _playerInputController.ChangeJumpAccess(obj);
         }
+
+        #endregion
+
+        
     }
 }
