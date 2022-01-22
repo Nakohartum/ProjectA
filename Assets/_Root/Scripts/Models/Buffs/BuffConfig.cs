@@ -12,6 +12,7 @@ namespace _Root.Scripts.Models.Buffs
     public enum BuffType
     {
         Heal    = 1,
-        Oxygen  = 2
+        Oxygen  = 2,
+        HandOfGod = 3
     }
 }
