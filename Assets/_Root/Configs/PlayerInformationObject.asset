@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerInformation:
     <Speed>k__BackingField: 8
-    <JumpSpeed>k__BackingField: 58
+    <JumpSpeed>k__BackingField: 65
     <HealthPoint>k__BackingField: 100
     <OxygenPoint>k__BackingField: 1000
     <DashPower>k__BackingField: 120
