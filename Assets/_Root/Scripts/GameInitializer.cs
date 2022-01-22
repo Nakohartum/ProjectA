@@ -6,6 +6,7 @@ using _Root.Scripts.Controllers.Camera;
 using _Root.Scripts.Controllers.Level;
 using _Root.Scripts.Controllers.Obstacles;
 using _Root.Scripts.Models.Obstacles;
+using _Root.Scripts.Models.Player;
 using _Root.Scripts.Views;
 
 
@@ -16,7 +17,7 @@ namespace _Root.Scripts
         #region Constructor
 
         public GameInitializer(ExecutableObjects executableObjects, LevelObjects levelObjects, List<ObstacleView> obstacleViews,
-            List<PortalView> portalViews, List<StickyFloor> stickyFloors, List<BuffView> buffViews)
+            List<PortalView> portalViews, List<StickyFloor> stickyFloors, List<BuffView> buffViews, List<CoinView> coinViews)
         {
             var obstacleFactory = new ObstacleFactory(obstacleViews, executableObjects);
             var playerFactory = new PlayerFactory(levelObjects, executableObjects);
@@ -25,6 +26,7 @@ namespace _Root.Scripts
             var obstacleControllers = obstacleFactory.CreateObstacles();
             var cameraContoller = new CameraController(levelObjects.CameraView, executableObjects, playerController);
             var buffControlelrs = buffFactory.CreateBuffs();
+            var coinManager = new CoinManager();
             executableObjects.AddExecutable(playerController);
             executableObjects.AddExecutable(cameraContoller);
             for (int i = 0; i < obstacleControllers.Count; i++)
@@ -45,7 +47,11 @@ namespace _Root.Scripts
             {
                 stickyFloors[i].ConnectedCollider.OnCollide += playerController.BlockJump;
             }
-            
+
+            for (int i = 0; i < coinViews.Count; i++)
+            {
+                coinViews[i].OnMoneyCollect.AddListener(coinManager.AddMoney);
+            }
             
         }
 
