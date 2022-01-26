@@ -33,7 +33,7 @@ namespace _Root.Scripts.Controllers
         private bool _canUseAbility;
         private float _untouchableCounts;
         private bool _abilityUsed;
-        public event Action<Collider2D> Teleportation = coll => {}; 
+        public event Action<Collider2D> Teleportation = coll => {};
 
         #endregion
 
@@ -84,7 +84,10 @@ namespace _Root.Scripts.Controllers
             {
                 if (_playerModel.Oxygen.RemoveAmountOfOxygen(damage, _isUntouchable))
                 {
-                    _playerView.EvaporationParticle.Play();
+                    if (!_playerView.EvaporationParticle.isPlaying)
+                    {
+                        _playerView.EvaporationParticle.Play();
+                    }
                 }
 
             }
@@ -159,7 +162,6 @@ namespace _Root.Scripts.Controllers
             else
             {
                 _canUseAbility = false;
-                Debug.Log("Did");
             }
 
             
@@ -190,6 +192,7 @@ namespace _Root.Scripts.Controllers
                 {
                     Teleportation.Invoke(_playerView.Collider);
                 }
+                
             }
             if (!Input.GetButton("Dash") && _currentDashTimer != DASH_TIMER)
             {
