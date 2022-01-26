@@ -12,14 +12,15 @@ namespace _Root.Scripts.Models.Player
             Debug.Log($"Coins now {_coinsAmount}");
         }
 
-        public void Buy(int value)
+        public bool Buy(int value)
         {
             if (_coinsAmount < value)
             {
-                return;
+                return false;
             }
 
             _coinsAmount -= value;
+            return true;
         }
     }
 }
