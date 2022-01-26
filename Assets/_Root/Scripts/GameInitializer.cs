@@ -8,6 +8,7 @@ using _Root.Scripts.Controllers.Obstacles;
 using _Root.Scripts.Models.Obstacles;
 using _Root.Scripts.Models.Player;
 using _Root.Scripts.Views;
+using UnityEngine;
 
 
 namespace _Root.Scripts
@@ -52,6 +53,7 @@ namespace _Root.Scripts
             {
                 coinViews[i].OnMoneyCollect.AddListener(coinManager.AddMoney);
             }
+            
             
         }
 
