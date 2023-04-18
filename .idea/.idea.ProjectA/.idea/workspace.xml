@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5189782b-aca6-4cfa-8274-b8ce402bbe93" name="Default Changelist" comment="" />
+    <list default="true" id="5189782b-aca6-4cfa-8274-b8ce402bbe93" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectA/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectA/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectA/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectA/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectA/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/_Root/Scripts/Test/PhotonTest.cs" />
         <option value="$PROJECT_DIR$/Assets/_Root/Scripts/Test/PlayFabTest.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Root/Scripts/Authorization/MainWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Root/Scripts/Authorization/SignUp.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Root/Scripts/Authorization/SignIn.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Root/Scripts/Authorization/AuthorizationWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/_Root/Scripts/Authorization/PlayFabAccountManager.cs" />
       </list>
     </option>
   </component>
@@ -56,6 +68,7 @@
       <option name="presentableId" value="Default" />
       <updated>1681807129600</updated>
       <workItem from="1681807198069" duration="2141000" />
+      <workItem from="1681817197641" duration="3625000" />
     </task>
     <servers />
   </component>
@@ -66,5 +79,11 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="430" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1681818709361">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="430" y="181" width="672" height="678" key="search.everywhere.popup/0.0.1536.864@0.0.1536.864" timestamp="1681818709361" />
   </component>
 </project>

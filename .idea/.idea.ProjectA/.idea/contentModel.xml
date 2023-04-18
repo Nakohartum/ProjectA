@@ -9,6 +9,13 @@
       <e p="Assets" t="Include">
         <e p="_Root" t="Include">
           <e p="Scripts" t="Include">
+            <e p="Authorization" t="Include">
+              <e p="AuthorizationWindow.cs" t="Include" />
+              <e p="MainWindow.cs" t="Include" />
+              <e p="PlayFabAccountManager.cs" t="Include" />
+              <e p="SignIn.cs" t="Include" />
+              <e p="SignUp.cs" t="Include" />
+            </e>
             <e p="Test" t="Include">
               <e p="PhotonTest.cs" t="Include" />
               <e p="PlayFabTest.cs" t="Include" />
