@@ -45,7 +45,7 @@ namespace _Root.Scripts.Authorization
         {
             Debug.Log($"Player {result.Username} successfully registered");
             _isLoading = false;
-            SceneManager.LoadScene(1);
+            OpenLobby();
         }
     }
 }

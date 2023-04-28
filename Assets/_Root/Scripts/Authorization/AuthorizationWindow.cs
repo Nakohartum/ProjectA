@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using _Root.Scripts.Test;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,8 @@ namespace _Root.Scripts.Authorization
         [SerializeField] protected TMP_InputField _usernameField;
         [SerializeField] protected TMP_InputField _passwordField;
         [SerializeField] protected Image _loadingImage;
+        [SerializeField] protected LobbyManager _lobbyManager;
+        [SerializeField] protected Canvas _rootObject;
         [field : SerializeField] public Canvas Canvas { get; private set; }
         [HideInInspector] public Canvas PreviouslyOpened;
 
@@ -62,6 +65,12 @@ namespace _Root.Scripts.Authorization
         {
             PreviouslyOpened.enabled = true;
             Canvas.enabled = false;
+        }
+
+        public void OpenLobby()
+        {
+            _lobbyManager.gameObject.SetActive(true);
+            _rootObject.enabled = false;
         }
     }
 }
