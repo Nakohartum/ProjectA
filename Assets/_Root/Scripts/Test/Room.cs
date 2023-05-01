@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ExitGames.Client.Photon;
 using Photon.Pun;
 using Photon.Realtime;
 using PlayFab;
 using PlayFab.ClientModels;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace _Root.Scripts.Test
@@ -19,6 +21,7 @@ namespace _Root.Scripts.Test
         [SerializeField] private PlayerInRoom _playerInRoomPrefab;
         [SerializeField] private float _offset;
         [SerializeField] private Button _exitButton;
+        [SerializeField] private Button _startGameButton;
         [SerializeField] private Toggle _openClosedToggle;
         private int _currentPlayersCount = 0;
         private List<PlayerInRoom> _playersInRoom = new List<PlayerInRoom>();
@@ -27,14 +30,29 @@ namespace _Root.Scripts.Test
         public override void OnEnable()
         {
             base.OnEnable();
+            _startGameButton.onClick.AddListener(StartGame);
             _exitButton.onClick.AddListener(ExitRoom);
             _openClosedToggle.onValueChanged.AddListener(ChangeRoomOpenClosedPolicy);
         }
+
+        
+
         public override void OnDisable()
         {
             base.OnDisable();
+            _startGameButton.onClick.RemoveAllListeners();
             _exitButton.onClick.RemoveAllListeners();
             _openClosedToggle.onValueChanged.RemoveAllListeners();
+        }
+
+        private void Start()
+        {
+            PhotonNetwork.AutomaticallySyncScene = true;
+        }
+
+        private void StartGame()
+        {
+            PhotonNetwork.LoadLevel("GameScene");
         }
 
         private void ChangeRoomOpenClosedPolicy(bool value)

@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Photon.Pun;
+using TMPro;
 using UnityEngine;
 
 namespace _Root.Scripts.Test
@@ -21,6 +22,11 @@ namespace _Root.Scripts.Test
         public string GetNickName()
         {
             return _nickName.text;
+        }
+
+        public void EnterTheRoom()
+        {
+            PhotonNetwork.LoadLevel("GameScene");
         }
     }
 }
