@@ -3,6 +3,7 @@ using System.Collections;
 using _Root.Scripts.Test;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace _Root.Scripts.Authorization
@@ -14,7 +15,7 @@ namespace _Root.Scripts.Authorization
         [SerializeField] protected TMP_InputField _usernameField;
         [SerializeField] protected TMP_InputField _passwordField;
         [SerializeField] protected Image _loadingImage;
-        [SerializeField] protected LobbyManager _lobbyManager;
+        [SerializeField] protected CharacterSelectorManager _characterManager;
         [SerializeField] protected Canvas _rootObject;
         [field : SerializeField] public Canvas Canvas { get; private set; }
         [HideInInspector] public Canvas PreviouslyOpened;
@@ -67,9 +68,9 @@ namespace _Root.Scripts.Authorization
             Canvas.enabled = false;
         }
 
-        public void OpenLobby()
+        public void OpenCharacterSelector()
         {
-            _lobbyManager.gameObject.SetActive(true);
+            _characterManager.gameObject.SetActive(true);
             _rootObject.enabled = false;
         }
     }

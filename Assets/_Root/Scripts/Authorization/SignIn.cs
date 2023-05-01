@@ -35,7 +35,7 @@ namespace _Root.Scripts.Authorization
         {
             Debug.Log($"Player {result.PlayFabId} successfully logged in");
             _isLoading = false;
-            OpenLobby();
+            OpenCharacterSelector();
         }
     }
 }

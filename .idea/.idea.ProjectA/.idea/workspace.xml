@@ -4,24 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5189782b-aca6-4cfa-8274-b8ce402bbe93" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Test/GameRoomManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Test/GameRoomManager.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Test/PlayerController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Test/PlayerController.cs.meta" afterDir="false" />
+    <list default="true" id="5189782b-aca6-4cfa-8274-b8ce402bbe93" name="Default Changelist" comment="Домашнее задание 7">
+      <change afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Test/CharacterSelectorContainer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Test/CharacterSelectorContainer.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Test/CharacterSelectorManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Test/CharacterSelectorManager.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Test/CreateCharacterWindow.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Test/CreateCharacterWindow.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectA/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectA/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Materials/13 - Default22662.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Materials/13 - Default22662.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Materials/13 - Default54.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Materials/13 - Default54.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Materials/20 - Default.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Materials/20 - Default.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Materials/22 - Default.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Materials/22 - Default.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Materials/24 - Default.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Materials/24 - Default.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Materials/ground_green232.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Materials/ground_green232.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Materials/insides_2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/DemoSlotRacer/Kenney Assets/Stylized city/Materials/insides_2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/PunBasics-Tutorial/Scenes/PunBasics-Room for 3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Photon/PhotonUnityNetworking/Demos/PunBasics-Tutorial/Scenes/PunBasics-Room for 3.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Lobby.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Root/Scripts/Test/PlayerInRoom.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Test/PlayerInRoom.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Root/Scripts/Test/Room.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Test/Room.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Root/Scripts/Authorization/AuthorizationWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Authorization/AuthorizationWindow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Root/Scripts/Authorization/SignIn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Authorization/SignIn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Root/Scripts/Authorization/SignUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Root/Scripts/Authorization/SignUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +26,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/UnityGames/ProjectA/Assets/_Root/Scripts/Authorization/AuthorizationWindow.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/9aad1b3a47484d63ba2b3985692d80e946a800/72/f742c8a1/List`1.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -114,10 +108,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="3680">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="3680" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -142,7 +136,7 @@
       <workItem from="1682592937297" duration="5856000" />
       <workItem from="1682653254342" duration="1183000" />
       <workItem from="1682671232260" duration="1698000" />
-      <workItem from="1682918501430" duration="4657000" />
+      <workItem from="1682918501430" duration="11658000" />
     </task>
     <task id="LOCAL-00001" summary="Задание 6">
       <created>1682671851348</created>
@@ -151,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682671851348</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Домашнее задание 7">
+      <created>1682923227433</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682923227433</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,6 +164,7 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Задание 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="Задание 6" />
+    <MESSAGE value="Домашнее задание 7" />
+    <option name="LAST_COMMIT_MESSAGE" value="Домашнее задание 7" />
   </component>
 </project>

@@ -1,4 +1,5 @@
-﻿using PlayFab;
+﻿using System.Linq;
+using PlayFab;
 using PlayFab.ClientModels;
 using TMPro;
 using UnityEngine;
@@ -44,8 +45,21 @@ namespace _Root.Scripts.Authorization
         private void RegistrationSuccessful(RegisterPlayFabUserResult result)
         {
             Debug.Log($"Player {result.Username} successfully registered");
+            PlayFabClientAPI.PurchaseItem(new PurchaseItemRequest()
+            {
+                CatalogVersion = "GameItems",
+                ItemId = "character_token",
+                Price = 0,
+                VirtualCurrency = "GL"
+            }, itemResult =>
+            {
+                Debug.Log($"Bought {itemResult.Items.First().DisplayName}");
+            }, error =>
+            {
+                Debug.Log($"{error.GenerateErrorReport()}");
+            });
             _isLoading = false;
-            OpenLobby();
+            OpenCharacterSelector();
         }
     }
 }
